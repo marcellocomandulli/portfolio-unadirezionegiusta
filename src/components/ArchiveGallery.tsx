@@ -1,0 +1,100 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import gallery4 from "@/assets/gallery-4.jpg";
+import gallery5 from "@/assets/gallery-5.jpg";
+import gallery6 from "@/assets/gallery-6.jpg";
+import gallery7 from "@/assets/gallery-7.jpg";
+import gallery8 from "@/assets/gallery-8.jpg";
+
+interface GalleryImage {
+  src: string;
+  title: string;
+  exif: { aperture: string; shutter: string; iso: string };
+  span: string; // grid span classes
+}
+
+const images: GalleryImage[] = [
+  { src: gallery1, title: "Whispers of Dawn", exif: { aperture: "f/2.8", shutter: "1/250s", iso: "ISO 400" }, span: "col-span-2 row-span-2" },
+  { src: gallery2, title: "Geometry of Light", exif: { aperture: "f/8", shutter: "1/125s", iso: "ISO 200" }, span: "col-span-1 row-span-2" },
+  { src: gallery3, title: "Neon Solitude", exif: { aperture: "f/1.4", shutter: "1/60s", iso: "ISO 1600" }, span: "col-span-1 row-span-1" },
+  { src: gallery6, title: "Memento Mori", exif: { aperture: "f/4", shutter: "1/30s", iso: "ISO 800" }, span: "col-span-1 row-span-1" },
+  { src: gallery4, title: "Golden Hour", exif: { aperture: "f/2", shutter: "1/500s", iso: "ISO 100" }, span: "col-span-1 row-span-2" },
+  { src: gallery5, title: "Edge of the World", exif: { aperture: "f/11", shutter: "1/1000s", iso: "ISO 200" }, span: "col-span-2 row-span-1" },
+  { src: gallery7, title: "Craftsman's Hands", exif: { aperture: "f/2.8", shutter: "1/125s", iso: "ISO 640" }, span: "col-span-1 row-span-1" },
+  { src: gallery8, title: "Infinite Sands", exif: { aperture: "f/8", shutter: "1/500s", iso: "ISO 100" }, span: "col-span-2 row-span-1" },
+];
+
+const ParallaxImage = ({ image, index }: { image: GalleryImage; index: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`${image.span} relative overflow-hidden group cursor-pointer`}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.7, delay: index * 0.08 }}
+    >
+      <motion.div className="w-full h-full" style={{ y, scale }}>
+        <img
+          src={image.src}
+          alt={image.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          loading="lazy"
+        />
+      </motion.div>
+
+      {/* EXIF Overlay */}
+      <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5">
+        <h4 className="font-serif text-lg text-foreground mb-2">{image.title}</h4>
+        <div className="flex gap-4 font-sans-display text-xs text-primary tracking-wider">
+          <span>{image.exif.aperture}</span>
+          <span>{image.exif.shutter}</span>
+          <span>{image.exif.iso}</span>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const ArchiveGallery = () => (
+  <section id="archive" className="py-32 px-6 lg:px-16 grain">
+    <div className="mb-16">
+      <motion.p
+        className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        The Collection
+      </motion.p>
+      <motion.h2
+        className="font-serif text-4xl lg:text-6xl text-foreground"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        Archive
+      </motion.h2>
+    </div>
+
+    <div className="grid grid-cols-3 auto-rows-[250px] lg:auto-rows-[300px] gap-3 lg:gap-4">
+      {images.map((img, i) => (
+        <ParallaxImage key={img.title} image={img} index={i} />
+      ))}
+    </div>
+  </section>
+);
+
+export default ArchiveGallery;

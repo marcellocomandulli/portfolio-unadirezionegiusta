@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  e.preventDefault();
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else if (id === "#") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+};
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -18,7 +28,8 @@ const Navbar = () => {
       animate={{ height: scrolled ? 64 : 88 }}
     >
       <nav className="container mx-auto flex items-center justify-between h-full px-6 lg:px-12">
-        <a href="#" className="font-serif text-foreground tracking-widest transition-all duration-500"
+        <a href="#" onClick={(e) => scrollToSection(e, "#")}
+          className="font-serif text-foreground tracking-widest transition-all duration-500"
           style={{ fontSize: scrolled ? "1.1rem" : "1.4rem" }}>
           ELARA<span className="text-primary">.</span>
         </a>
@@ -27,6 +38,7 @@ const Navbar = () => {
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
+                onClick={(e) => scrollToSection(e, link.toLowerCase())}
                 className="font-sans-display text-sm tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 {link}
@@ -36,6 +48,7 @@ const Navbar = () => {
         </ul>
         <a
           href="#contact"
+          onClick={(e) => scrollToSection(e, "contact")}
           className="hidden md:block font-sans-display text-xs tracking-[0.3em] uppercase border border-primary/30 text-primary px-5 py-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
         >
           Inquire

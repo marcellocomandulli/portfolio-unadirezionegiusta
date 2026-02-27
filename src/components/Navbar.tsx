@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLang } from "@/i18n/LanguageContext";
 
 const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
   e.preventDefault();
@@ -13,6 +14,7 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => 
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { lang, toggleLang, t } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -20,7 +22,12 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["Stories", "Archive", "Process", "Contact"];
+  const links = [
+    { label: t("navStories"), id: "stories" },
+    { label: t("navArchive"), id: "archive" },
+    { label: t("navProcess"), id: "process" },
+    { label: t("navContact"), id: "contact" },
+  ];
 
   return (
     <motion.header
@@ -35,24 +42,32 @@ const Navbar = () => {
         </a>
         <ul className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <li key={link}>
+            <li key={link.id}>
               <a
-                href={`#${link.toLowerCase()}`}
-                onClick={(e) => scrollToSection(e, link.toLowerCase())}
+                href={`#${link.id}`}
+                onClick={(e) => scrollToSection(e, link.id)}
                 className="font-sans-display text-sm tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
               >
-                {link}
+                {link.label}
               </a>
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          onClick={(e) => scrollToSection(e, "contact")}
-          className="hidden md:block font-sans-display text-xs tracking-[0.3em] uppercase border border-primary/30 text-primary px-5 py-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-        >
-          Inquire
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleLang}
+            className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300"
+          >
+            {lang === "it" ? "EN" : "IT"}
+          </button>
+          <a
+            href="#contact"
+            onClick={(e) => scrollToSection(e, "contact")}
+            className="font-sans-display text-xs tracking-[0.3em] uppercase border border-primary/30 text-primary px-5 py-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+          >
+            {t("navInquire")}
+          </a>
+        </div>
       </nav>
     </motion.header>
   );

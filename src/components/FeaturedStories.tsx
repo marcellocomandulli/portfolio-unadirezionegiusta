@@ -20,34 +20,34 @@ const FeaturedStories = () => {
   ];
 
   return (
-    <section id="stories" ref={containerRef} className="py-32 overflow-hidden grain">
-      <div className="px-6 lg:px-16 mb-16">
+    <section id="stories" ref={containerRef} className="py-16 sm:py-24 lg:py-32 overflow-hidden grain">
+      <div className="px-4 sm:px-6 lg:px-16 mb-10 sm:mb-16">
         <motion.p className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
           {t("featuredLabel")}
         </motion.p>
-        <motion.h2 className="font-serif text-4xl lg:text-6xl text-foreground"
+        <motion.h2 className="font-serif text-3xl sm:text-4xl lg:text-6xl text-foreground"
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
           {t("featuredTitle")}
         </motion.h2>
       </div>
 
-      <motion.div className="flex gap-8 pl-6 lg:pl-16" style={{ x }}>
+      <motion.div className="flex gap-4 sm:gap-6 lg:gap-8 pl-4 sm:pl-6 lg:pl-16" style={{ x }}>
         {stories.map((story, i) => (
           <motion.div key={i} className="relative flex-shrink-0 group cursor-pointer"
-            style={{ width: i % 2 === 0 ? "55vw" : "40vw" }}
+            style={{ width: i % 2 === 0 ? "clamp(280px, 55vw, 900px)" : "clamp(220px, 40vw, 700px)" }}
             initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.15 }}>
             <div className="relative overflow-hidden aspect-[3/2]">
               <img src={story.img} alt={story.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-background/0 group-hover:bg-background/30 transition-colors duration-500" />
             </div>
-            <div className="mt-5 flex items-baseline justify-between">
-              <div>
-                <h3 className="font-serif text-xl lg:text-2xl text-foreground group-hover:text-primary transition-colors duration-300">{story.title}</h3>
-                <p className="font-body text-sm text-muted-foreground mt-1">{story.location}</p>
+            <div className="mt-3 sm:mt-5 flex items-baseline justify-between gap-2">
+              <div className="min-w-0">
+                <h3 className="font-serif text-base sm:text-xl lg:text-2xl text-foreground group-hover:text-primary transition-colors duration-300 truncate">{story.title}</h3>
+                <p className="font-body text-xs sm:text-sm text-muted-foreground mt-1">{story.location}</p>
               </div>
-              <span className="font-sans-display text-xs text-muted-foreground tracking-wider">{story.year}</span>
+              <span className="font-sans-display text-[10px] sm:text-xs text-muted-foreground tracking-wider flex-shrink-0">{story.year}</span>
             </div>
           </motion.div>
         ))}

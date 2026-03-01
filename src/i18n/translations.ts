@@ -87,6 +87,17 @@ export const translations = {
     en: "Available for editorial, commercial, and fine art commissions worldwide."
   },
   contactRights: { it: "© 2024 Tutti i Diritti Riservati", en: "© 2024 All Rights Reserved" },
+
+  // Contact form
+  formName: { it: "Nome", en: "Name" },
+  formEmail: { it: "Email", en: "Email" },
+  formMessage: { it: "Messaggio", en: "Message" },
+  formSend: { it: "Invia Messaggio", en: "Send Message" },
+  formNamePlaceholder: { it: "Il tuo nome", en: "Your name" },
+  formEmailPlaceholder: { it: "La tua email", en: "Your email" },
+  formMessagePlaceholder: { it: "Raccontami del tuo progetto...", en: "Tell me about your project..." },
+  formSuccess: { it: "Messaggio inviato con successo!", en: "Message sent successfully!" },
+  formError: { it: "Errore nell'invio. Riprova.", en: "Error sending. Please try again." },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

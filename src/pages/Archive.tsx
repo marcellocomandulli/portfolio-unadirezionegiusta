@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import ContactFooter from "@/components/ContactFooter";
+import GalleryLightbox from "@/components/GalleryLightbox";
 import { useLang } from "@/i18n/LanguageContext";
 import type { TranslationKey, ArchiveCategory, Continent } from "@/i18n/translations";
 
@@ -35,14 +36,13 @@ const allImages: ArchiveImage[] = [
   { src: gallery5, titleKey: "archImg6", exif: { aperture: "f/11", shutter: "1/1000s", iso: "ISO 200" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1", category: "travel", continent: "europe" },
   { src: gallery7, titleKey: "archImg7", exif: { aperture: "f/2.8", shutter: "1/125s", iso: "ISO 640" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "shooting" },
   { src: gallery8, titleKey: "archImg8", exif: { aperture: "f/8", shutter: "1/500s", iso: "ISO 100" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "africa" },
-  // Duplicate images as additional examples
   { src: gallery1, titleKey: "archImg1", exif: { aperture: "f/2.8", shutter: "1/250s", iso: "ISO 400" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "weddings" },
   { src: gallery3, titleKey: "archImg3", exif: { aperture: "f/1.4", shutter: "1/60s", iso: "ISO 1600" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1", category: "events" },
   { src: gallery5, titleKey: "archImg6", exif: { aperture: "f/11", shutter: "1/1000s", iso: "ISO 200" }, spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1", category: "shooting" },
   { src: gallery7, titleKey: "archImg7", exif: { aperture: "f/2.8", shutter: "1/125s", iso: "ISO 640" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "south-america" },
 ];
 
-const ParallaxImage = ({ image, index }: { image: ArchiveImage; index: number }) => {
+const ParallaxImage = ({ image, index, onClick }: { image: ArchiveImage; index: number; onClick: () => void }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useLang();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -57,6 +57,7 @@ const ParallaxImage = ({ image, index }: { image: ArchiveImage; index: number })
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, delay: index * 0.05 }}
+      onClick={onClick}
     >
       <motion.div className="w-full h-full" style={{ y, scale }}>
         <img src={image.src} alt={t(image.titleKey)} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
@@ -85,6 +86,8 @@ const Archive = () => {
     return true;
   });
 
+  const lightboxImages = filtered.map((img) => ({ src: img.src, alt: t(img.titleKey) }));
+
   const categoryLabel = categoryParam === "all" ? t("catAll")
     : categoryParam === "shooting" ? t("catShooting")
     : categoryParam === "travel" ? (continentParam ? t(`cont${continentParam.charAt(0).toUpperCase() + continentParam.slice(1).replace(/-([a-z])/g, (_, c) => c.toUpperCase())}` as TranslationKey) : t("catTravel"))
@@ -94,7 +97,6 @@ const Archive = () => {
   return (
     <main className="bg-background min-h-screen">
       <Navbar />
-      {/* Header area with back button */}
       <div className="pt-24 sm:pt-32 px-4 sm:px-6 lg:px-16">
         <Link
           to="/"
@@ -104,40 +106,32 @@ const Archive = () => {
           {t("archiveBack")}
         </Link>
 
-        <motion.p
-          className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
+        <motion.p className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           {t("archivePageLabel")}
         </motion.p>
-        <motion.h1
-          className="font-serif text-4xl sm:text-5xl lg:text-7xl text-foreground mb-2"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <motion.h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl text-foreground mb-2"
+          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           {t("archivePageTitle")}
         </motion.h1>
         {categoryParam !== "all" && (
-          <motion.p
-            className="font-sans-display text-sm tracking-[0.15em] uppercase text-primary/70 mt-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
+          <motion.p className="font-sans-display text-sm tracking-[0.15em] uppercase text-primary/70 mt-2"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
             — {categoryLabel}
           </motion.p>
         )}
       </div>
 
-      {/* Gallery grid */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-16 grain">
-        <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
-          {filtered.map((img, i) => (
-            <ParallaxImage key={i} image={img} index={i} />
-          ))}
-        </div>
+        <GalleryLightbox images={lightboxImages}>
+          {(openAtIndex) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
+              {filtered.map((img, i) => (
+                <ParallaxImage key={i} image={img} index={i} onClick={() => openAtIndex(i)} />
+              ))}
+            </div>
+          )}
+        </GalleryLightbox>
         {filtered.length === 0 && (
           <p className="text-center text-muted-foreground font-body text-lg py-20">
             {categoryParam === "all" ? "Nessuna foto disponibile." : "Nessuna foto in questa categoria."}

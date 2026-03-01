@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -10,6 +11,7 @@ import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
+import GalleryLightbox from "@/components/GalleryLightbox";
 
 interface GalleryImage {
   src: string;
@@ -30,7 +32,7 @@ const images: GalleryImage[] = [
   { src: gallery8, titleKey: "archImg8", exif: { aperture: "f/8", shutter: "1/500s", iso: "ISO 100" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-1 row-span-1" },
 ];
 
-const ParallaxImage = ({ image, index }: { image: GalleryImage; index: number }) => {
+const ParallaxImage = ({ image, index, onClick }: { image: GalleryImage; index: number; onClick: () => void }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useLang();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -41,7 +43,8 @@ const ParallaxImage = ({ image, index }: { image: GalleryImage; index: number })
     <motion.div ref={ref}
       className={`${image.spanMobile} md:${image.spanDesktop} relative overflow-hidden group cursor-pointer`}
       initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7, delay: index * 0.08 }}>
+      viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7, delay: index * 0.08 }}
+      onClick={onClick}>
       <motion.div className="w-full h-full" style={{ y, scale }}>
         <img src={image.src} alt={t(image.titleKey)} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
       </motion.div>
@@ -59,6 +62,8 @@ const ParallaxImage = ({ image, index }: { image: GalleryImage; index: number })
 
 const ArchiveGallery = () => {
   const { t } = useLang();
+  const lightboxImages = images.map((img) => ({ src: img.src, alt: t(img.titleKey) }));
+
   return (
     <section id="archive" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 grain">
       <div className="mb-10 sm:mb-16">
@@ -72,18 +77,22 @@ const ArchiveGallery = () => {
           {t("archiveTitle")}
         </motion.h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
-        {images.map((img, i) => (
-          <ParallaxImage key={i} image={img} index={i} />
-        ))}
-      </div>
+      <GalleryLightbox images={lightboxImages}>
+        {(openAtIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
+            {images.map((img, i) => (
+              <ParallaxImage key={i} image={img} index={i} onClick={() => openAtIndex(i)} />
+            ))}
+          </div>
+        )}
+      </GalleryLightbox>
       <motion.div className="mt-10 sm:mt-14 text-center"
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ delay: 0.3 }}>
-        <a href="/archive"
+        <Link to="/archive"
           className="inline-block font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300">
           {t("archiveViewAll")}
-        </a>
+        </Link>
       </motion.div>
     </section>
   );

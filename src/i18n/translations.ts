@@ -8,6 +8,27 @@ export const translations = {
   navContact: { it: "Contatto", en: "Contact" },
   navInquire: { it: "Contattami", en: "Inquire" },
 
+  // Archive categories
+  catAll: { it: "Tutto", en: "All" },
+  catShooting: { it: "Shooting", en: "Shooting" },
+  catTravel: { it: "Viaggi", en: "Travel" },
+  catWeddings: { it: "Matrimoni", en: "Weddings" },
+  catEvents: { it: "Eventi", en: "Events" },
+
+  // Continents
+  contEurope: { it: "Europa", en: "Europe" },
+  contAsia: { it: "Asia", en: "Asia" },
+  contAfrica: { it: "Africa", en: "Africa" },
+  contNorthAmerica: { it: "Nord America", en: "North America" },
+  contSouthAmerica: { it: "Sud America", en: "South America" },
+  contOceania: { it: "Oceania", en: "Oceania" },
+
+  // Archive page
+  archivePageLabel: { it: "La Collezione Completa", en: "The Full Collection" },
+  archivePageTitle: { it: "Archivio", en: "Archive" },
+  archiveViewAll: { it: "Vedi Archivio Completo", en: "View Full Archive" },
+  archiveBack: { it: "Torna alla Home", en: "Back to Home" },
+
   // Loader
   loaderSubtitle: { it: "Narratrice Visiva", en: "Visual Storyteller" },
 
@@ -28,7 +49,7 @@ export const translations = {
   story4Title: { it: "Sabbie Infinite", en: "Infinite Sands" },
   story4Location: { it: "Sahara, Marocco", en: "Sahara, Morocco" },
 
-  // Archive
+  // Archive (home)
   archiveLabel: { it: "La Collezione", en: "The Collection" },
   archiveTitle: { it: "Archivio", en: "Archive" },
   archImg1: { it: "Sussurri dell'Alba", en: "Whispers of Dawn" },
@@ -69,3 +90,6 @@ export const translations = {
 } as const;
 
 export type TranslationKey = keyof typeof translations;
+
+export type ArchiveCategory = "all" | "shooting" | "travel" | "weddings" | "events";
+export type Continent = "europe" | "asia" | "africa" | "north-america" | "south-america" | "oceania";

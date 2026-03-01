@@ -77,6 +77,14 @@ const ArchiveGallery = () => {
           <ParallaxImage key={i} image={img} index={i} />
         ))}
       </div>
+      <motion.div className="mt-10 sm:mt-14 text-center"
+        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }} transition={{ delay: 0.3 }}>
+        <a href="/archive"
+          className="inline-block font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+          {t("archiveViewAll")}
+        </a>
+      </motion.div>
     </section>
   );
 };

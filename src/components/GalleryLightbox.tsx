@@ -5,8 +5,6 @@ import "yet-another-react-lightbox/styles.css";
 export interface LightboxImage {
   src: string;
   alt?: string;
-  title?: string;
-  exif?: { aperture: string; shutter: string; iso: string };
 }
 
 interface GalleryLightboxProps {
@@ -24,7 +22,6 @@ const GalleryLightbox = ({ images, children }: GalleryLightboxProps) => {
   }, []);
 
   const slides: Slide[] = images.map((img) => ({ src: img.src, alt: img.alt }));
-  const current = images[index];
 
   return (
     <>
@@ -39,23 +36,6 @@ const GalleryLightbox = ({ images, children }: GalleryLightboxProps) => {
           container: { backgroundColor: "hsl(var(--background) / 0.95)" },
         }}
         controller={{ closeOnBackdropClick: true }}
-        render={{
-          slideFooter: () =>
-            current ? (
-              <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center pb-6 pointer-events-none">
-                {current.title && (
-                  <h4 className="font-serif text-base sm:text-xl text-foreground mb-2">{current.title}</h4>
-                )}
-                {current.exif && (
-                  <div className="flex gap-4 font-sans-display text-xs sm:text-sm text-primary tracking-wider">
-                    <span>{current.exif.aperture}</span>
-                    <span>{current.exif.shutter}</span>
-                    <span>{current.exif.iso}</span>
-                  </div>
-                )}
-              </div>
-            ) : null,
-        }}
       />
     </>
   );

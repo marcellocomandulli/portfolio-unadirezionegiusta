@@ -12,27 +12,25 @@ import gallery8 from "@/assets/gallery-8.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
 
-
 interface GalleryImage {
   src: string;
   titleKey: TranslationKey;
-  exif: { aperture: string; shutter: string; iso: string };
   spanDesktop: string;
   spanMobile: string;
 }
 
 const images: GalleryImage[] = [
-  { src: gallery1, titleKey: "archImg1", exif: { aperture: "f/2.8", shutter: "1/250s", iso: "ISO 400" }, spanDesktop: "col-span-2 row-span-2", spanMobile: "col-span-2 row-span-2" },
-  { src: gallery2, titleKey: "archImg2", exif: { aperture: "f/8", shutter: "1/125s", iso: "ISO 200" }, spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1" },
-  { src: gallery3, titleKey: "archImg3", exif: { aperture: "f/1.4", shutter: "1/60s", iso: "ISO 1600" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1" },
-  { src: gallery6, titleKey: "archImg4", exif: { aperture: "f/4", shutter: "1/30s", iso: "ISO 800" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1" },
-  { src: gallery4, titleKey: "archImg5", exif: { aperture: "f/2", shutter: "1/500s", iso: "ISO 100" }, spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1" },
-  { src: gallery5, titleKey: "archImg6", exif: { aperture: "f/11", shutter: "1/1000s", iso: "ISO 200" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1" },
-  { src: gallery7, titleKey: "archImg7", exif: { aperture: "f/2.8", shutter: "1/125s", iso: "ISO 640" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1" },
-  { src: gallery8, titleKey: "archImg8", exif: { aperture: "f/8", shutter: "1/500s", iso: "ISO 100" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-1 row-span-1" },
+  { src: gallery1, titleKey: "archImg1", spanDesktop: "col-span-2 row-span-2", spanMobile: "col-span-2 row-span-2" },
+  { src: gallery2, titleKey: "archImg2", spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1" },
+  { src: gallery3, titleKey: "archImg3", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1" },
+  { src: gallery6, titleKey: "archImg4", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1" },
+  { src: gallery4, titleKey: "archImg5", spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1" },
+  { src: gallery5, titleKey: "archImg6", spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1" },
+  { src: gallery7, titleKey: "archImg7", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1" },
+  { src: gallery8, titleKey: "archImg8", spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-1 row-span-1" },
 ];
 
-const ParallaxImage = ({ image, index, onClick }: { image: GalleryImage; index: number; onClick: () => void }) => {
+const ParallaxImage = ({ image, index }: { image: GalleryImage; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useLang();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -41,21 +39,12 @@ const ParallaxImage = ({ image, index, onClick }: { image: GalleryImage; index: 
 
   return (
     <motion.div ref={ref}
-      className={`${image.spanMobile} md:${image.spanDesktop} relative overflow-hidden group cursor-pointer`}
+      className={`${image.spanMobile} md:${image.spanDesktop} relative overflow-hidden group`}
       initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7, delay: index * 0.08 }}
-      onClick={onClick}>
+      viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7, delay: index * 0.08 }}>
       <motion.div className="w-full h-full" style={{ y, scale }}>
         <img src={image.src} alt={t(image.titleKey)} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
       </motion.div>
-      <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-3 sm:p-5">
-        <h4 className="font-serif text-sm sm:text-lg text-foreground mb-1 sm:mb-2">{t(image.titleKey)}</h4>
-        <div className="flex gap-2 sm:gap-4 font-sans-display text-[10px] sm:text-xs text-primary tracking-wider">
-          <span>{image.exif.aperture}</span>
-          <span>{image.exif.shutter}</span>
-          <span>{image.exif.iso}</span>
-        </div>
-      </div>
     </motion.div>
   );
 };
@@ -78,7 +67,7 @@ const ArchiveGallery = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
         {images.map((img, i) => (
-          <ParallaxImage key={i} image={img} index={i} onClick={() => {}} />
+          <ParallaxImage key={i} image={img} index={i} />
         ))}
       </div>
       <motion.div className="mt-10 sm:mt-14 text-center"

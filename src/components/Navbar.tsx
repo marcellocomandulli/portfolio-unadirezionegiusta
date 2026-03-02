@@ -97,7 +97,7 @@ const Navbar = () => {
 
   const simpleLinks = [
     { label: t("navStories"), id: "stories" },
-    { label: t("navProcess"), id: "process" },
+    { label: t("navProcess"), id: "about" },
     { label: t("navContact"), id: "contact" },
   ];
 

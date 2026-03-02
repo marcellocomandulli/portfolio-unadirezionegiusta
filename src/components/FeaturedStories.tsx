@@ -4,19 +4,27 @@ import gallery1 from "@/assets/gallery-1.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
+import gallery9 from "@/assets/gallery-9.jpg";
+import gallery10 from "@/assets/gallery-10.jpg";
+import gallery11 from "@/assets/gallery-11.jpg";
+import gallery12 from "@/assets/gallery-12.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 
 const FeaturedStories = () => {
   const { t } = useLang();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-45%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-55%"]);
 
   const stories = [
     { img: gallery1, title: t("story1Title"), location: t("story1Location"), year: "2024" },
     { img: gallery3, title: t("story2Title"), location: t("story2Location"), year: "2023" },
+    { img: gallery9, title: t("story5Title"), location: t("story5Location"), year: "2024" },
     { img: gallery5, title: t("story3Title"), location: t("story3Location"), year: "2024" },
+    { img: gallery10, title: t("story6Title"), location: t("story6Location"), year: "2023" },
     { img: gallery8, title: t("story4Title"), location: t("story4Location"), year: "2023" },
+    { img: gallery11, title: t("story7Title"), location: t("story7Location"), year: "2024" },
+    { img: gallery12, title: t("story8Title"), location: t("story8Location"), year: "2023" },
   ];
 
   return (

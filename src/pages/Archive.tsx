@@ -16,11 +16,14 @@ import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
+import gallery9 from "@/assets/gallery-9.jpg";
+import gallery10 from "@/assets/gallery-10.jpg";
+import gallery11 from "@/assets/gallery-11.jpg";
+import gallery12 from "@/assets/gallery-12.jpg";
 
 interface ArchiveImage {
   src: string;
   titleKey: TranslationKey;
-  exif: { aperture: string; shutter: string; iso: string };
   spanDesktop: string;
   spanMobile: string;
   category: ArchiveCategory;
@@ -28,18 +31,22 @@ interface ArchiveImage {
 }
 
 const allImages: ArchiveImage[] = [
-  { src: gallery1, titleKey: "archImg1", exif: { aperture: "f/2.8", shutter: "1/250s", iso: "ISO 400" }, spanDesktop: "col-span-2 row-span-2", spanMobile: "col-span-2 row-span-2", category: "travel", continent: "europe" },
-  { src: gallery2, titleKey: "archImg2", exif: { aperture: "f/8", shutter: "1/125s", iso: "ISO 200" }, spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1", category: "shooting" },
-  { src: gallery3, titleKey: "archImg3", exif: { aperture: "f/1.4", shutter: "1/60s", iso: "ISO 1600" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "asia" },
-  { src: gallery6, titleKey: "archImg4", exif: { aperture: "f/4", shutter: "1/30s", iso: "ISO 800" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "events" },
-  { src: gallery4, titleKey: "archImg5", exif: { aperture: "f/2", shutter: "1/500s", iso: "ISO 100" }, spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1", category: "weddings" },
-  { src: gallery5, titleKey: "archImg6", exif: { aperture: "f/11", shutter: "1/1000s", iso: "ISO 200" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1", category: "travel", continent: "europe" },
-  { src: gallery7, titleKey: "archImg7", exif: { aperture: "f/2.8", shutter: "1/125s", iso: "ISO 640" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "shooting" },
-  { src: gallery8, titleKey: "archImg8", exif: { aperture: "f/8", shutter: "1/500s", iso: "ISO 100" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "africa" },
-  { src: gallery1, titleKey: "archImg1", exif: { aperture: "f/2.8", shutter: "1/250s", iso: "ISO 400" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "weddings" },
-  { src: gallery3, titleKey: "archImg3", exif: { aperture: "f/1.4", shutter: "1/60s", iso: "ISO 1600" }, spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1", category: "events" },
-  { src: gallery5, titleKey: "archImg6", exif: { aperture: "f/11", shutter: "1/1000s", iso: "ISO 200" }, spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1", category: "shooting" },
-  { src: gallery7, titleKey: "archImg7", exif: { aperture: "f/2.8", shutter: "1/125s", iso: "ISO 640" }, spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "south-america" },
+  { src: gallery1, titleKey: "archImg1", spanDesktop: "col-span-2 row-span-2", spanMobile: "col-span-2 row-span-2", category: "travel", continent: "europe" },
+  { src: gallery2, titleKey: "archImg2", spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1", category: "shooting" },
+  { src: gallery3, titleKey: "archImg3", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "asia" },
+  { src: gallery6, titleKey: "archImg4", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "events" },
+  { src: gallery4, titleKey: "archImg5", spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1", category: "weddings" },
+  { src: gallery5, titleKey: "archImg6", spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1", category: "travel", continent: "europe" },
+  { src: gallery7, titleKey: "archImg7", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "shooting" },
+  { src: gallery8, titleKey: "archImg8", spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "africa" },
+  { src: gallery9, titleKey: "archImg9", spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "europe" },
+  { src: gallery10, titleKey: "archImg10", spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1", category: "events" },
+  { src: gallery11, titleKey: "archImg11", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "shooting" },
+  { src: gallery12, titleKey: "archImg12", spanDesktop: "col-span-2 row-span-2", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "europe" },
+  { src: gallery1, titleKey: "archImg1", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "weddings" },
+  { src: gallery3, titleKey: "archImg3", spanDesktop: "col-span-2 row-span-1", spanMobile: "col-span-2 row-span-1", category: "events" },
+  { src: gallery5, titleKey: "archImg6", spanDesktop: "col-span-1 row-span-2", spanMobile: "col-span-1 row-span-1", category: "shooting" },
+  { src: gallery7, titleKey: "archImg7", spanDesktop: "col-span-1 row-span-1", spanMobile: "col-span-1 row-span-1", category: "travel", continent: "south-america" },
 ];
 
 const ParallaxImage = ({ image, index, onClick }: { image: ArchiveImage; index: number; onClick: () => void }) => {
@@ -62,14 +69,6 @@ const ParallaxImage = ({ image, index, onClick }: { image: ArchiveImage; index: 
       <motion.div className="w-full h-full" style={{ y, scale }}>
         <img src={image.src} alt={t(image.titleKey)} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
       </motion.div>
-      <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-3 sm:p-5">
-        <h4 className="font-serif text-sm sm:text-lg text-foreground mb-1 sm:mb-2">{t(image.titleKey)}</h4>
-        <div className="flex gap-2 sm:gap-4 font-sans-display text-[10px] sm:text-xs text-primary tracking-wider">
-          <span>{image.exif.aperture}</span>
-          <span>{image.exif.shutter}</span>
-          <span>{image.exif.iso}</span>
-        </div>
-      </div>
     </motion.div>
   );
 };
@@ -89,8 +88,6 @@ const Archive = () => {
   const lightboxImages = filtered.map((img) => ({
     src: img.src,
     alt: t(img.titleKey),
-    title: t(img.titleKey),
-    exif: img.exif,
   }));
 
   const categoryLabel = categoryParam === "all" ? t("catAll")

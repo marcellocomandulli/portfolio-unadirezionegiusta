@@ -2,9 +2,9 @@ export type Lang = "it" | "en";
 
 export const translations = {
   // Navbar
-  navStories: { it: "Storie", en: "Stories" },
-  navArchive: { it: "Archivio", en: "Archive" },
-  navProcess: { it: "Processo", en: "Process" },
+  navStories: { it: "In Evidenza", en: "Featured" },
+  navArchive: { it: "Galleria", en: "Gallery" },
+  navProcess: { it: "Chi Siamo", en: "About Us" },
   navContact: { it: "Contatto", en: "Contact" },
   navInquire: { it: "Contattami", en: "Inquire" },
 
@@ -25,8 +25,8 @@ export const translations = {
 
   // Archive page
   archivePageLabel: { it: "La Collezione Completa", en: "The Full Collection" },
-  archivePageTitle: { it: "Archivio", en: "Archive" },
-  archiveViewAll: { it: "Vedi Archivio Completo", en: "View Full Archive" },
+  archivePageTitle: { it: "Galleria", en: "Gallery" },
+  archiveViewAll: { it: "Vedi Galleria Completa", en: "View Full Gallery" },
   archiveBack: { it: "Torna alla Home", en: "Back to Home" },
 
   // Loader
@@ -37,9 +37,9 @@ export const translations = {
   heroTagline: { it: "Catturare la poesia tra luce e silenzio.", en: "Capturing the poetry between light and silence." },
   heroScroll: { it: "Scorri", en: "Scroll" },
 
-  // Featured Stories
+  // Featured (In Evidenza)
   featuredLabel: { it: "Lavori in Evidenza", en: "Featured Work" },
-  featuredTitle: { it: "Storie", en: "Stories" },
+  featuredTitle: { it: "In Evidenza", en: "Featured" },
   story1Title: { it: "Sussurri dell'Alba", en: "Whispers of Dawn" },
   story1Location: { it: "Alpi, Svizzera", en: "Alps, Switzerland" },
   story2Title: { it: "Solitudine al Neon", en: "Neon Solitude" },
@@ -48,10 +48,16 @@ export const translations = {
   story3Location: { it: "Azzorre, Portogallo", en: "Azores, Portugal" },
   story4Title: { it: "Sabbie Infinite", en: "Infinite Sands" },
   story4Location: { it: "Sahara, Marocco", en: "Sahara, Morocco" },
+  story5Title: { it: "Colline Dorate", en: "Golden Hills" },
+  story5Location: { it: "Toscana, Italia", en: "Tuscany, Italy" },
+  story6Title: { it: "Pioggia Urbana", en: "Urban Rain" },
+  story6Location: { it: "Londra, UK", en: "London, UK" },
+  story7Title: { it: "Foresta Incantata", en: "Enchanted Forest" },
+  story7Location: { it: "Baviera, Germania", en: "Bavaria, Germany" },
+  story8Title: { it: "Scogliere Selvagge", en: "Wild Cliffs" },
+  story8Location: { it: "Irlanda", en: "Ireland" },
 
-  // Archive (home)
-  archiveLabel: { it: "La Collezione", en: "The Collection" },
-  archiveTitle: { it: "Archivio", en: "Archive" },
+  // Archive (home) - gallery names
   archImg1: { it: "Sussurri dell'Alba", en: "Whispers of Dawn" },
   archImg2: { it: "Geometria della Luce", en: "Geometry of Light" },
   archImg3: { it: "Solitudine al Neon", en: "Neon Solitude" },
@@ -60,10 +66,18 @@ export const translations = {
   archImg6: { it: "Ai Confini del Mondo", en: "Edge of the World" },
   archImg7: { it: "Le Mani dell'Artigiano", en: "Craftsman's Hands" },
   archImg8: { it: "Sabbie Infinite", en: "Infinite Sands" },
+  archImg9: { it: "Colline Dorate", en: "Golden Hills" },
+  archImg10: { it: "Pioggia Urbana", en: "Urban Rain" },
+  archImg11: { it: "Foresta Incantata", en: "Enchanted Forest" },
+  archImg12: { it: "Scogliere Selvagge", en: "Wild Cliffs" },
 
-  // Process
-  processLabel: { it: "Filosofia", en: "Philosophy" },
-  processTitle1: { it: "Processo &", en: "Process &" },
+  // Gallery section label (home)
+  archiveLabel: { it: "La Collezione", en: "The Collection" },
+  archiveTitle: { it: "Galleria", en: "Gallery" },
+
+  // Process → Chi Siamo
+  processLabel: { it: "Chi Siamo", en: "About Us" },
+  processTitle1: { it: "La Nostra", en: "Our" },
   processTitle2: { it: "Visione", en: "Vision" },
   processQuote: {
     it: "\"La fotografia non riguarda la cosa fotografata. Riguarda come quella cosa appare quando viene fotografata.\"",

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroImg from "@/assets/hero.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 import { useLang } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
@@ -14,7 +14,14 @@ const HeroSection = () => {
   return (
     <section ref={ref} className="relative h-screen overflow-hidden grain">
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        <img src={heroImg} alt="Signature photograph" className="w-full h-[130%] object-cover" loading="eager" />
+        <video
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-[130%] object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent" />
       </motion.div>

@@ -86,7 +86,12 @@ const Archive = () => {
     return true;
   });
 
-  const lightboxImages = filtered.map((img) => ({ src: img.src, alt: t(img.titleKey) }));
+  const lightboxImages = filtered.map((img) => ({
+    src: img.src,
+    alt: t(img.titleKey),
+    title: t(img.titleKey),
+    exif: img.exif,
+  }));
 
   const categoryLabel = categoryParam === "all" ? t("catAll")
     : categoryParam === "shooting" ? t("catShooting")

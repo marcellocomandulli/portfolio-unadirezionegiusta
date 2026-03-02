@@ -11,7 +11,7 @@ import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
-import GalleryLightbox from "@/components/GalleryLightbox";
+
 
 interface GalleryImage {
   src: string;
@@ -62,7 +62,6 @@ const ParallaxImage = ({ image, index, onClick }: { image: GalleryImage; index: 
 
 const ArchiveGallery = () => {
   const { t } = useLang();
-  const lightboxImages = images.map((img) => ({ src: img.src, alt: t(img.titleKey) }));
 
   return (
     <section id="archive" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 grain">
@@ -77,15 +76,11 @@ const ArchiveGallery = () => {
           {t("archiveTitle")}
         </motion.h2>
       </div>
-      <GalleryLightbox images={lightboxImages}>
-        {(openAtIndex) => (
-          <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
-            {images.map((img, i) => (
-              <ParallaxImage key={i} image={img} index={i} onClick={() => openAtIndex(i)} />
-            ))}
-          </div>
-        )}
-      </GalleryLightbox>
+      <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
+        {images.map((img, i) => (
+          <ParallaxImage key={i} image={img} index={i} onClick={() => {}} />
+        ))}
+      </div>
       <motion.div className="mt-10 sm:mt-14 text-center"
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ delay: 0.3 }}>

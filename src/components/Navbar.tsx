@@ -110,9 +110,9 @@ const Navbar = () => {
       >
         <nav className="container mx-auto flex items-center justify-between h-full px-6 lg:px-12">
           <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }}
-            className="flex items-center gap-2 font-serif text-foreground tracking-widest transition-all duration-500"
-            style={{ fontSize: scrolled ? "0.85rem" : "1rem" }}>
-            <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert transition-all duration-500" style={{ height: scrolled ? "28px" : "36px" }} />
+            className="flex items-center gap-2.5 font-serif text-foreground tracking-widest transition-all duration-500"
+            style={{ fontSize: scrolled ? "0.95rem" : "1.1rem" }}>
+            <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert transition-all duration-500" style={{ height: scrolled ? "32px" : "40px" }} />
             <span>UNA DIREZIONE GIUSTA</span>
           </a>
 

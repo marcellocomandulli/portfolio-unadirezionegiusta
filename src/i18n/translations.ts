@@ -30,10 +30,10 @@ export const translations = {
   archiveBack: { it: "Torna alla Home", en: "Back to Home" },
 
   // Loader
-  loaderSubtitle: { it: "Narratrice Visiva", en: "Visual Storyteller" },
+  loaderSubtitle: { it: "Fotografi e Videomaker", en: "Photographers & Videomakers" },
 
   // Hero
-  heroSubtitle: { it: "Narratrice Visiva", en: "Visual Storyteller" },
+  heroSubtitle: { it: "Fotografi e Videomaker", en: "Photographers & Videomakers" },
   heroTagline: { it: "Catturare la poesia tra luce e silenzio.", en: "Capturing the poetry between light and silence." },
   heroScroll: { it: "Scorri", en: "Scroll" },
 

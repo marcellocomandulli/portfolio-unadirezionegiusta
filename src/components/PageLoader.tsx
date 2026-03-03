@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/i18n/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const PageLoader = () => {
   const [loading, setLoading] = useState(true);
@@ -19,13 +20,21 @@ const PageLoader = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
+          <motion.img
+            src={logo}
+            alt="Una Direzione Giusta"
+            className="brightness-0 invert h-16 sm:h-20 mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          />
           <motion.h1
-            className="font-serif text-4xl sm:text-5xl text-foreground tracking-widest"
+            className="font-serif text-2xl sm:text-3xl text-foreground tracking-widest"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            ELARA<span className="text-primary">.</span>
+            UNA DIREZIONE GIUSTA
           </motion.h1>
           <motion.div
             className="mt-8 h-px bg-primary/60"

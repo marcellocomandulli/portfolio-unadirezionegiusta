@@ -31,9 +31,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3 }}>
           {t("heroSubtitle")}
         </motion.p>
-        <motion.h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-[0.9] text-foreground"
+        <motion.h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold leading-[0.9] text-foreground"
           initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.5 }}>
-          Elara<br /><span className="text-gold-gradient">Voss</span>
+          Una Direzione<br /><span className="text-gold-gradient">Giusta</span>
         </motion.h1>
         <motion.p className="font-body text-lg sm:text-xl lg:text-2xl text-muted-foreground mt-6 sm:mt-8 max-w-lg"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>

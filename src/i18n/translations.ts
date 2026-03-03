@@ -77,19 +77,42 @@ export const translations = {
 
   // Process → Chi Siamo
   processLabel: { it: "Chi Siamo", en: "About Us" },
-  processTitle1: { it: "La Nostra", en: "Our" },
-  processTitle2: { it: "Visione", en: "Vision" },
-  processQuote: {
-    it: "\"La fotografia non riguarda la cosa fotografata. Riguarda come quella cosa appare quando viene fotografata.\"",
-    en: "\"Photography is not about the thing photographed. It is about how that thing looks photographed.\""
+  processTitle1: { it: "Chi", en: "About" },
+  processTitle2: { it: "Siamo", en: "Us" },
+  processIntro: {
+    it: "Siamo narratori visivi prima ancora che fotografi e videomaker.\nAbbiamo scelto di lasciare la strada più sicura per inseguire quella più vera: raccontare il mondo attraverso immagini che emozionano, restano e parlano anche quando le parole finiscono.",
+    en: "We are visual storytellers before being photographers and videomakers.\nWe chose to leave the safer path to chase the truest one: telling the world through images that move, stay, and speak even when words run out."
   },
-  processP1: {
-    it: "Ogni scatto è una conversazione intenzionale tra luce, ombra e il fugace momento umano. Cerco gli spazi intermedi — il respiro prima della tempesta, l'ultimo raggio dorato prima che il crepuscolo conquisti l'orizzonte.",
-    en: "Every frame is an intentional conversation between light, shadow, and the fleeting human moment. I seek the spaces between—the exhale before the storm, the last golden ray before dusk claims the horizon."
+  processGrowth: {
+    it: "La nostra crescita professionale è passata attraverso il viaggio. Lavorare in contesti diversi, tra culture e ambienti sempre nuovi, ci ha allenati all'adattabilità, alla rapidità decisionale e alla capacità di valorizzare qualsiasi scenario, leggendo la luce in ogni condizione: dall'alba sulle metropoli alle spiagge al tramonto, dai templi silenziosi ai mercati caotici. Il viaggio ci ha insegnato adattabilità, velocità e rispetto per ogni storia.",
+    en: "Our professional growth came through travel. Working in different contexts, among ever-new cultures and environments, trained us in adaptability, quick decision-making, and the ability to enhance any scenario, reading light in every condition: from dawns over cities to sunsets on beaches, from silent temples to chaotic markets. Travel taught us adaptability, speed, and respect for every story."
   },
-  processP2: {
-    it: "Il mio lavoro è guidato dalla pazienza e dall'istinto in egual misura. Settimane di ricerca si distillano in un singolo momento decisivo — un gesto, un'ombra, una convergenza di elementi che non si allineeranno mai più.",
-    en: "My work is guided by patience and instinct in equal measure. Weeks of scouting distill into a single decisive moment—a gesture, a shadow, a convergence of elements that will never align again."
+  processExperience: {
+    it: "Portiamo questa esperienza in ogni progetto:",
+    en: "We bring this experience into every project:"
+  },
+  processService1Title: { it: "Matrimoni ed eventi", en: "Weddings & events" },
+  processService1Desc: {
+    it: "discreti quando serve, presenti quando conta. Catturiamo attimi autentici, senza forzature.",
+    en: "discreet when needed, present when it matters. We capture authentic moments, naturally."
+  },
+  processService2Title: { it: "Shooting con modelle e ritratti", en: "Model shoots & portraits" },
+  processService2Desc: {
+    it: "attenzione al dettaglio, direzione chiara, estetica pulita ma potente.",
+    en: "attention to detail, clear direction, clean yet powerful aesthetics."
+  },
+  processService3Title: { it: "Video di viaggio e storytelling", en: "Travel video & storytelling" },
+  processService3Desc: {
+    it: "ritmo, atmosfera e visione cinematografica, con riprese aeree che ampliano lo sguardo e danno respiro alla narrazione.",
+    en: "rhythm, atmosphere, and cinematic vision, with aerial footage that broadens the perspective and gives the narrative room to breathe."
+  },
+  processStrength: {
+    it: "La nostra forza è l'unione tra tecnica e sensibilità. Sappiamo gestire la pressione di un evento irripetibile e allo stesso tempo cogliere la spontaneità di un sorriso non programmato.",
+    en: "Our strength lies in the union of technique and sensitivity. We can handle the pressure of a once-in-a-lifetime event while capturing the spontaneity of an unplanned smile."
+  },
+  processClosing: {
+    it: "Non realizziamo semplici contenuti.\nCostruiamo ricordi, identità visive e storie che meritano di essere raccontate bene.",
+    en: "We don't just create content.\nWe build memories, visual identities, and stories that deserve to be told well."
   },
 
   // Contact

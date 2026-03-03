@@ -4,6 +4,8 @@ import { useLang } from "@/i18n/LanguageContext";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Instagram } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const ContactFooter = () => {
   const { t } = useLang();
@@ -99,12 +101,19 @@ const ContactFooter = () => {
         </motion.form>
 
         <div className="mt-16 sm:mt-24 pt-6 sm:pt-8 border-t border-border flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          <span className="font-serif text-foreground tracking-widest text-sm">ELARA<span className="text-primary">.</span></span>
-          <div className="flex gap-6 sm:gap-8">
-            {["Instagram", "Behance", "Vimeo"].map((s) => (
-              <a key={s} href="#" className="font-sans-display text-xs text-muted-foreground hover:text-primary tracking-wider transition-colors duration-300">{s}</a>
-            ))}
-          </div>
+          <span className="flex items-center gap-2 font-serif text-foreground tracking-widest text-sm">
+            <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert h-6" />
+            UNA DIREZIONE GIUSTA
+          </span>
+          <a
+            href="https://www.instagram.com/unadirezione_giusta/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            aria-label="Instagram"
+          >
+            <Instagram size={22} />
+          </a>
           <span className="font-sans-display text-xs text-muted-foreground">{t("contactRights")}</span>
         </div>
       </div>

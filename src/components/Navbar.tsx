@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 import type { ArchiveCategory, Continent } from "@/i18n/translations";
+import logo from "@/assets/logo.png";
 
 const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, id: string) => {
   e.preventDefault();
@@ -109,9 +110,10 @@ const Navbar = () => {
       >
         <nav className="container mx-auto flex items-center justify-between h-full px-6 lg:px-12">
           <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }}
-            className="font-serif text-foreground tracking-widest transition-all duration-500"
-            style={{ fontSize: scrolled ? "1.1rem" : "1.4rem" }}>
-            ELARA<span className="text-primary">.</span>
+            className="flex items-center gap-2 font-serif text-foreground tracking-widest transition-all duration-500"
+            style={{ fontSize: scrolled ? "0.85rem" : "1rem" }}>
+            <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert transition-all duration-500" style={{ height: scrolled ? "28px" : "36px" }} />
+            <span>UNA DIREZIONE GIUSTA</span>
           </a>
 
           {/* Desktop nav */}
@@ -235,8 +237,9 @@ const Navbar = () => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
             <div className="flex items-center justify-between px-6 h-20">
-              <span className="font-serif text-foreground tracking-widest text-lg">
-                ELARA<span className="text-primary">.</span>
+              <span className="flex items-center gap-2 font-serif text-foreground tracking-widest text-lg">
+                <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert h-7" />
+                UNA DIREZIONE GIUSTA
               </span>
               <button onClick={() => setMenuOpen(false)} className="text-foreground p-2" aria-label="Chiudi menu">
                 <X size={24} />

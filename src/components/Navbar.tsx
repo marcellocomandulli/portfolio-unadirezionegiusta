@@ -117,7 +117,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-8">
             {simpleLinks.slice(0, 1).map((link) => (
               <li key={link.id}>
                 <a href={`#${link.id}`} onClick={(e) => handleNavClick(e, link.id)}
@@ -208,7 +208,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <button onClick={toggleLang}
               className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
               {lang === "it" ? "EN" : "IT"}
@@ -220,7 +220,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile hamburger */}
-          <button className="md:hidden text-foreground p-2" onClick={() => setMenuOpen(true)} aria-label="Apri menu">
+          <button className="lg:hidden text-foreground p-2" onClick={() => setMenuOpen(true)} aria-label="Apri menu">
             <Menu size={24} />
           </button>
         </nav>

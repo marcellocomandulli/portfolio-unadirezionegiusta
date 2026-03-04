@@ -116,113 +116,15 @@ const Navbar = () => {
             <span>UNA DIREZIONE GIUSTA</span>
           </a>
 
-          {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-8">
-            {simpleLinks.slice(0, 1).map((link) => (
-              <li key={link.id}>
-                <a href={`#${link.id}`} onClick={(e) => handleNavClick(e, link.id)}
-                  className="font-sans-display text-sm tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-
-            {/* Archive dropdown */}
-            <li ref={archiveRef} className="relative">
-              <button
-                onClick={() => setArchiveOpen(!archiveOpen)}
-                className="font-sans-display text-sm tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1"
-              >
-                {t("navArchive")}
-                <ChevronDown size={14} className={`transition-transform duration-200 ${archiveOpen ? "rotate-180" : ""}`} />
-              </button>
-
-              <AnimatePresence>
-                {archiveOpen && (
-                  <motion.div
-                    className="absolute top-full left-0 mt-3 min-w-[200px] glass border border-border py-2"
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {archiveCategories.map((cat) => (
-                      <div key={cat.category} className="relative">
-                        {cat.category === "travel" ? (
-                          <div
-                            className="relative"
-                            onMouseEnter={() => setTravelOpen(true)}
-                            onMouseLeave={() => setTravelOpen(false)}
-                          >
-                            <button
-                              onClick={() => goToArchive("travel")}
-                              className="w-full flex items-center justify-between px-5 py-2.5 font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary hover:bg-secondary/50 transition-all duration-200"
-                            >
-                              {t(cat.labelKey as any)}
-                              <ChevronRight size={12} />
-                            </button>
-                            <AnimatePresence>
-                              {travelOpen && (
-                                <motion.div
-                                  className="absolute left-full top-0 ml-1 min-w-[180px] glass border border-border py-2"
-                                  initial={{ opacity: 0, x: -8 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  exit={{ opacity: 0, x: -8 }}
-                                  transition={{ duration: 0.15 }}
-                                >
-                                  {continents.map((cont) => (
-                                    <button
-                                      key={cont.continent}
-                                      onClick={() => goToArchive("travel", cont.continent)}
-                                      className="w-full text-left px-5 py-2.5 font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary hover:bg-secondary/50 transition-all duration-200"
-                                    >
-                                      {t(cont.labelKey as any)}
-                                    </button>
-                                  ))}
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                        ) : (
-                          <button
-                            onClick={() => goToArchive(cat.category)}
-                            className="w-full text-left px-5 py-2.5 font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary hover:bg-secondary/50 transition-all duration-200"
-                          >
-                            {t(cat.labelKey as any)}
-                          </button>
-                        )}
-                      </div>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </li>
-
-            {simpleLinks.slice(1).map((link) => (
-              <li key={link.id}>
-                <a href={`#${link.id}`} onClick={(e) => handleNavClick(e, link.id)}
-                  className="font-sans-display text-sm tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="flex items-center gap-4">
             <button onClick={toggleLang}
               className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
               {lang === "it" ? "EN" : "IT"}
             </button>
-            <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}
-              className="font-sans-display text-xs tracking-[0.3em] uppercase border border-primary/30 text-primary px-5 py-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300">
-              {t("navInquire")}
-            </a>
+            <button className="text-foreground p-2" onClick={() => setMenuOpen(true)} aria-label="Apri menu">
+              <Menu size={24} />
+            </button>
           </div>
-
-          {/* Mobile hamburger */}
-          <button className="lg:hidden text-foreground p-2" onClick={() => setMenuOpen(true)} aria-label="Apri menu">
-            <Menu size={24} />
-          </button>
         </nav>
       </motion.header>
 

@@ -116,7 +116,96 @@ const Navbar = () => {
             <span>UNA DIREZIONE GIUSTA</span>
           </a>
 
-          <div className="flex items-center gap-4">
+          {/* Desktop/Tablet nav links */}
+          <ul className="hidden md:flex items-center gap-8">
+            <li ref={archiveRef} className="relative">
+              <button
+                onClick={() => setArchiveOpen(!archiveOpen)}
+                className="font-sans-display text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1"
+              >
+                {t("navArchive")}
+                <ChevronDown size={12} className={`transition-transform duration-200 ${archiveOpen ? "rotate-180" : ""}`} />
+              </button>
+              <AnimatePresence>
+                {archiveOpen && (
+                  <motion.div
+                    className="absolute top-full left-0 mt-3 bg-background/95 backdrop-blur-md border border-border/50 py-3 px-1 min-w-[160px] shadow-xl"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {archiveCategories.map((cat) => (
+                      <div key={cat.category} className="relative">
+                        {cat.category === "travel" ? (
+                          <div
+                            onMouseEnter={() => setTravelOpen(true)}
+                            onMouseLeave={() => setTravelOpen(false)}
+                          >
+                            <button
+                              onClick={() => goToArchive("travel")}
+                              className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary px-4 py-2 transition-colors flex items-center justify-between gap-2"
+                            >
+                              {t(cat.labelKey as any)}
+                              <ChevronRight size={10} />
+                            </button>
+                            <AnimatePresence>
+                              {travelOpen && (
+                                <motion.div
+                                  className="absolute left-full top-0 ml-1 bg-background/95 backdrop-blur-md border border-border/50 py-3 px-1 min-w-[160px] shadow-xl"
+                                  initial={{ opacity: 0, x: -8 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  exit={{ opacity: 0, x: -8 }}
+                                  transition={{ duration: 0.15 }}
+                                >
+                                  {continents.map((cont) => (
+                                    <button
+                                      key={cont.continent}
+                                      onClick={() => goToArchive("travel", cont.continent)}
+                                      className="w-full text-left font-sans-display text-xs tracking-[0.1em] uppercase text-muted-foreground hover:text-primary px-4 py-2 transition-colors"
+                                    >
+                                      {t(cont.labelKey as any)}
+                                    </button>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        ) : (
+                          <button
+                            onClick={() => goToArchive(cat.category)}
+                            className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary px-4 py-2 transition-colors"
+                          >
+                            {t(cat.labelKey as any)}
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
+            {simpleLinks.slice(1).map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  onClick={(e) => handleNavClick(e, link.id)}
+                  className="font-sans-display text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <button onClick={toggleLang}
+                className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
+                {lang === "it" ? "EN" : "IT"}
+              </button>
+            </li>
+          </ul>
+
+          {/* Mobile hamburger */}
+          <div className="flex items-center gap-4 md:hidden">
             <button onClick={toggleLang}
               className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
               {lang === "it" ? "EN" : "IT"}

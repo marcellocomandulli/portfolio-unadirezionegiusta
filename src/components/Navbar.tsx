@@ -108,9 +108,9 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50 glass transition-all duration-500"
         animate={{ height: scrolled ? 64 : 88 }}
       >
-        <nav className="container mx-auto flex items-center justify-between h-full px-6 lg:px-12">
+        <nav className="container mx-auto flex items-center justify-center h-full px-6 lg:px-12 relative">
           <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }}
-            className="flex items-center gap-2.5 font-serif text-foreground tracking-widest transition-all duration-500"
+            className="absolute left-6 lg:left-12 flex items-center gap-2.5 font-serif text-foreground tracking-widest transition-all duration-500"
             style={{ fontSize: scrolled ? "1.1rem" : "1.25rem" }}>
             <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert transition-all duration-500" style={{ height: scrolled ? "44px" : "56px" }} />
             <span>UNA DIREZIONE GIUSTA</span>
@@ -205,7 +205,7 @@ const Navbar = () => {
           </ul>
 
           {/* Mobile hamburger */}
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="absolute right-6 lg:right-12 flex items-center gap-4 md:hidden">
             <button onClick={toggleLang}
               className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
               {lang === "it" ? "EN" : "IT"}

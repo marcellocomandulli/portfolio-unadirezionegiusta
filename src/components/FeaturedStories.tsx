@@ -43,7 +43,7 @@ const FeaturedStories = () => {
       <motion.div className="flex gap-4 sm:gap-6 lg:gap-8 pl-4 sm:pl-6 lg:pl-16" style={{ x }}>
         {stories.map((story, i) => (
           <motion.div key={i} className="relative flex-shrink-0 group cursor-pointer"
-            style={{ width: i % 2 === 0 ? "clamp(280px, 55vw, 900px)" : "clamp(220px, 40vw, 700px)" }}
+            style={{ width: i % 2 === 0 ? "clamp(200px, 22vw, 420px)" : "clamp(160px, 18vw, 340px)" }}
             initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.15 }}>
             <div className="relative overflow-hidden aspect-[3/2]">

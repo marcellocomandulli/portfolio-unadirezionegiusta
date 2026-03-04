@@ -149,24 +149,12 @@ const Navbar = () => {
             </div>
 
             <div className="flex-1 flex flex-col items-center justify-center gap-6 overflow-y-auto">
-              {/* Stories */}
-              <motion.a
-                href="#stories"
-                onClick={(e) => { handleNavClick(e, "stories"); setMenuOpen(false); }}
-                className="font-serif text-3xl text-foreground hover:text-primary transition-colors duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-              >
-                {t("navStories")}
-              </motion.a>
-
               {/* Archive with accordion */}
               <motion.div
                 className="flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.18 }}
+                transition={{ delay: 0.1 }}
               >
                 <button
                   onClick={() => setMobileArchiveOpen(!mobileArchiveOpen)}
@@ -246,7 +234,7 @@ const Navbar = () => {
                   className="font-serif text-3xl text-foreground hover:text-primary transition-colors duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.26 + i * 0.08 }}
+                  transition={{ delay: 0.18 + i * 0.08 }}
                 >
                   {link.label}
                 </motion.a>

@@ -20,7 +20,7 @@ const ProcessSection = () => {
   return (
     <section id="about" ref={ref} className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 grain">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-start">
-        <div className="lg:sticky lg:top-32">
+        <div>
           <motion.p className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             {t("processLabel")}
@@ -75,7 +75,7 @@ const ProcessSection = () => {
           </motion.p>
         </div>
 
-        <div className="relative min-h-[400px] sm:min-h-[600px] lg:min-h-[800px]">
+        <div className="relative lg:sticky lg:top-32 lg:self-start min-h-[400px] sm:min-h-[600px] lg:min-h-[700px]">
           <motion.div className="relative z-10 w-[70%] lg:w-[65%] overflow-hidden shadow-2xl" style={{ y: img1Y }}>
             <img src={gallery4} alt="Process" className="w-full object-cover" loading="lazy" />
           </motion.div>

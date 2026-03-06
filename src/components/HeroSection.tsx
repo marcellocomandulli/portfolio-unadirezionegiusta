@@ -35,7 +35,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.5 }}>
           Una Direzione<br /><span className="text-gold-gradient">Giusta</span>
         </motion.h1>
-        <motion.p className="font-body text-lg sm:text-xl lg:text-2xl text-muted-foreground mt-4 sm:mt-6 max-w-lg"
+        <motion.p className="font-body text-lg sm:text-xl lg:text-2xl text-muted-foreground mt-4 sm:mt-6 max-w-lg whitespace-pre-line"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
           {t("heroTagline")}
         </motion.p>

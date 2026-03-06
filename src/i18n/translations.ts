@@ -36,7 +36,7 @@ export const translations = {
 
   // Hero
   heroSubtitle: { it: "Fotografi e Videomaker", en: "Photographers & Videomakers" },
-  heroTagline: { it: "Catturare la poesia tra luce e silenzio.", en: "Capturing the poetry between light and silence." },
+  heroTagline: { it: "Ogni immagine ha una storia.\nNoi la raccontiamo.", en: "Every image has a story.\nWe tell it." },
   heroScroll: { it: "Scorri", en: "Scroll" },
 
   // Featured (In Evidenza)

@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLang } from "@/i18n/LanguageContext";
 import logo from "@/assets/logo.png";
 
 const PageLoader = () => {
   const [loading, setLoading] = useState(true);
-  const { t } = useLang();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
@@ -48,7 +46,7 @@ const PageLoader = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            {t("loaderSubtitle")}
+            Photography & Storytelling
           </motion.p>
         </motion.div>
       )}

@@ -42,12 +42,12 @@ const HeroSection = () => {
         <motion.a
           href="#contact"
           onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
-          className="lg:hidden inline-block mt-6 sm:mt-8 w-fit font-sans-display text-xs tracking-[0.2em] uppercase bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 transition-all duration-300"
+          className="lg:hidden inline-block mt-6 sm:mt-8 w-fit font-sans-display text-[11px] sm:text-xs tracking-[0.2em] uppercase leading-[1.6] text-center bg-primary text-primary-foreground px-8 py-4 hover:bg-primary/90 transition-all duration-300 whitespace-pre-line"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          {t("navQuote")}
+          {t("navQuoteLong")}
         </motion.a>
       </motion.div>
 

@@ -113,7 +113,7 @@ const Navbar = () => {
             className="absolute left-6 lg:left-12 flex items-center gap-2.5 font-serif text-foreground tracking-widest transition-all duration-500"
             style={{ fontSize: scrolled ? "1.1rem" : "1.25rem" }}>
             <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert transition-all duration-500" style={{ height: scrolled ? "44px" : "56px" }} />
-            <span className="hidden lg:inline">UNA DIREZIONE GIUSTA</span>
+            <span className="hidden md:inline">UNA DIREZIONE GIUSTA</span>
           </a>
 
           {/* Desktop nav links */}

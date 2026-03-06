@@ -207,9 +207,10 @@ const Navbar = () => {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "contact")}
-              className="font-sans-display text-xs tracking-[0.2em] uppercase bg-primary text-primary-foreground px-4 py-1.5 hover:bg-primary/90 transition-all duration-300"
+              className="group relative font-sans-display text-xs tracking-[0.2em] uppercase bg-primary text-primary-foreground px-5 py-2 overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
             >
-              {t("navQuote")}
+              <span className="relative z-10 transition-transform duration-300 group-hover:scale-105 inline-block">{t("navQuote")}</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </a>
           </div>
 

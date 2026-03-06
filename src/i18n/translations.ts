@@ -8,6 +8,7 @@ export const translations = {
   navContact: { it: "Contatto", en: "Contact" },
   navInquire: { it: "Contattami", en: "Inquire" },
   navQuote: { it: "Preventivo", en: "Quote" },
+  navQuoteLong: { it: "Richiedi un\nPreventivo", en: "Request a\nQuote" },
 
   // Archive categories
   catAll: { it: "Tutto", en: "All" },

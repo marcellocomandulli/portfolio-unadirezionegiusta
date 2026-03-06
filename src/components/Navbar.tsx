@@ -113,7 +113,7 @@ const Navbar = () => {
             className="absolute left-6 lg:left-12 flex items-center gap-2.5 font-serif text-foreground tracking-widest transition-all duration-500"
             style={{ fontSize: scrolled ? "1.1rem" : "1.25rem" }}>
             <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert transition-all duration-500" style={{ height: scrolled ? "44px" : "56px" }} />
-            <span>UNA DIREZIONE GIUSTA</span>
+            <span className="hidden lg:inline">UNA DIREZIONE GIUSTA</span>
           </a>
 
           {/* Desktop nav links */}
@@ -214,8 +214,12 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile/Tablet hamburger */}
-          <div className="absolute right-6 lg:right-12 flex items-center gap-4 lg:hidden">
+          {/* Mobile/Tablet hamburger + lang */}
+          <div className="absolute right-6 lg:right-12 flex items-center gap-3 lg:hidden">
+            <button onClick={toggleLang}
+              className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
+              {lang === "it" ? "EN" : "IT"}
+            </button>
             <button className="text-foreground p-2" onClick={() => setMenuOpen(true)} aria-label="Apri menu">
               <Menu size={24} />
             </button>
@@ -335,12 +339,6 @@ const Navbar = () => {
                 </motion.a>
               ))}
 
-              <div className="flex items-center gap-4 mt-8">
-                <button onClick={toggleLang}
-                  className="font-sans-display text-sm tracking-[0.2em] uppercase border border-border text-muted-foreground px-4 py-2 hover:text-primary hover:border-primary/30 transition-all duration-300">
-                  {lang === "it" ? "EN" : "IT"}
-                </button>
-              </div>
             </div>
           </motion.div>
         )}

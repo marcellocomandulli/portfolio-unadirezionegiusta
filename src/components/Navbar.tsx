@@ -116,8 +116,8 @@ const Navbar = () => {
             <span>UNA DIREZIONE GIUSTA</span>
           </a>
 
-          {/* Desktop/Tablet nav links */}
-          <ul className="hidden md:flex items-center gap-8">
+          {/* Desktop nav links */}
+          <ul className="hidden lg:flex items-center gap-8">
             <li ref={archiveRef} className="relative">
               <button
                 onClick={() => setArchiveOpen(!archiveOpen)}
@@ -198,8 +198,8 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Desktop/Tablet right side: Lang + CTA */}
-          <div className="absolute right-6 lg:right-12 hidden md:flex items-center gap-3">
+          {/* Desktop right side: Lang + CTA */}
+          <div className="absolute right-6 lg:right-12 hidden lg:flex items-center gap-3">
             <button onClick={toggleLang}
               className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
               {lang === "it" ? "EN" : "IT"}
@@ -213,8 +213,8 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile hamburger */}
-          <div className="absolute right-6 lg:right-12 flex items-center gap-4 md:hidden">
+          {/* Mobile/Tablet hamburger */}
+          <div className="absolute right-6 lg:right-12 flex items-center gap-4 lg:hidden">
             <button className="text-foreground p-2" onClick={() => setMenuOpen(true)} aria-label="Apri menu">
               <Menu size={24} />
             </button>

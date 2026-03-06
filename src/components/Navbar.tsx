@@ -196,20 +196,25 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            <li>
-              <button onClick={toggleLang}
-                className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
-                {lang === "it" ? "EN" : "IT"}
-              </button>
-            </li>
           </ul>
 
-          {/* Mobile hamburger */}
-          <div className="absolute right-6 lg:right-12 flex items-center gap-4 md:hidden">
+          {/* Desktop/Tablet right side: Lang + CTA */}
+          <div className="absolute right-6 lg:right-12 hidden md:flex items-center gap-3">
             <button onClick={toggleLang}
               className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300">
               {lang === "it" ? "EN" : "IT"}
             </button>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
+              className="font-sans-display text-xs tracking-[0.2em] uppercase bg-primary text-primary-foreground px-4 py-1.5 hover:bg-primary/90 transition-all duration-300"
+            >
+              {t("navQuote")}
+            </a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <div className="absolute right-6 lg:right-12 flex items-center gap-4 md:hidden">
             <button className="text-foreground p-2" onClick={() => setMenuOpen(true)} aria-label="Apri menu">
               <Menu size={24} />
             </button>

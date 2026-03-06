@@ -7,6 +7,7 @@ export const translations = {
   navProcess: { it: "Chi Siamo", en: "About Us" },
   navContact: { it: "Contatto", en: "Contact" },
   navInquire: { it: "Contattami", en: "Inquire" },
+  navQuote: { it: "Preventivo", en: "Quote" },
 
   // Archive categories
   catAll: { it: "Tutto", en: "All" },

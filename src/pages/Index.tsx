@@ -14,14 +14,22 @@ const Index = () => (
   <main className="bg-background">
     <PageLoader />
     <Navbar />
-    <HeroSection />
-    <FeaturedStories />
+    <div className="relative z-10 bg-background">
+      <HeroSection />
+      <FeaturedStories />
+    </div>
     <ParallaxDivider image={gallery2} alt="Landscape transition" />
-    <ArchiveGallery />
+    <div className="relative z-10 bg-background">
+      <ArchiveGallery />
+    </div>
     <ParallaxDivider image={gallery6} alt="Portrait transition" />
-    <ProcessSection />
+    <div className="relative z-10 bg-background">
+      <ProcessSection />
+    </div>
     <ParallaxDivider image={gallery8} alt="Detail transition" />
-    <ContactFooter />
+    <div className="relative z-10 bg-background">
+      <ContactFooter />
+    </div>
   </main>
 );
 

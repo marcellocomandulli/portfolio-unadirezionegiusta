@@ -1,14 +1,33 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import FeaturedStories from "@/components/FeaturedStories";
-import ArchiveGallery from "@/components/ArchiveGallery";
-import ProcessSection from "@/components/ProcessSection";
-import ContactFooter from "@/components/ContactFooter";
 import PageLoader from "@/components/PageLoader";
-import ParallaxDivider from "@/components/ParallaxDivider";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
-import gallery8 from "@/assets/gallery-8.jpg";
+
+const FeaturedStories = lazy(() => import("@/components/FeaturedStories"));
+const ArchiveGallery = lazy(() => import("@/components/ArchiveGallery"));
+const ProcessSection = lazy(() => import("@/components/ProcessSection"));
+const ContactFooter = lazy(() => import("@/components/ContactFooter"));
+const ParallaxDivider = lazy(() => import("@/components/ParallaxDivider"));
+
+const lazyImg = (p: () => Promise<{ default: string }>) =>
+  p().then((m) => m.default);
+
+const gallery2 = () => lazyImg(() => import("@/assets/gallery-2.jpg"));
+const gallery6 = () => lazyImg(() => import("@/assets/gallery-6.jpg"));
+const gallery8 = () => lazyImg(() => import("@/assets/gallery-8.jpg"));
+
+import { useState, useEffect } from "react";
+
+const LazyParallax = ({ loader, alt }: { loader: () => Promise<string>; alt: string }) => {
+  const [src, setSrc] = useState<string>();
+  useEffect(() => { loader().then(setSrc); }, []);
+  if (!src) return <div className="h-[60vh] bg-background" />;
+  return (
+    <Suspense fallback={<div className="h-[60vh] bg-background" />}>
+      <ParallaxDivider image={src} alt={alt} />
+    </Suspense>
+  );
+};
 
 const Index = () => (
   <main className="bg-background">
@@ -16,19 +35,27 @@ const Index = () => (
     <Navbar />
     <div className="relative z-10 bg-background shadow-[0_20px_40px_-10px_hsl(var(--background))]">
       <HeroSection />
-      <FeaturedStories />
+      <Suspense fallback={null}>
+        <FeaturedStories />
+      </Suspense>
     </div>
-    <ParallaxDivider image={gallery2} alt="Landscape transition" />
+    <LazyParallax loader={gallery2} alt="Landscape transition" />
     <div className="relative z-10 bg-background shadow-[0_-20px_40px_-10px_hsl(var(--background)),0_20px_40px_-10px_hsl(var(--background))]">
-      <ArchiveGallery />
+      <Suspense fallback={null}>
+        <ArchiveGallery />
+      </Suspense>
     </div>
-    <ParallaxDivider image={gallery6} alt="Portrait transition" />
+    <LazyParallax loader={gallery6} alt="Portrait transition" />
     <div className="relative z-10 bg-background shadow-[0_-20px_40px_-10px_hsl(var(--background)),0_20px_40px_-10px_hsl(var(--background))]">
-      <ProcessSection />
+      <Suspense fallback={null}>
+        <ProcessSection />
+      </Suspense>
     </div>
-    <ParallaxDivider image={gallery8} alt="Detail transition" />
+    <LazyParallax loader={gallery8} alt="Detail transition" />
     <div className="relative z-10 bg-background shadow-[0_-20px_40px_-10px_hsl(var(--background))]">
-      <ContactFooter />
+      <Suspense fallback={null}>
+        <ContactFooter />
+      </Suspense>
     </div>
   </main>
 );

@@ -77,10 +77,10 @@ const ProcessSection = () => {
 
         <div className="relative lg:sticky lg:top-32 lg:self-start min-h-[400px] sm:min-h-[600px] lg:min-h-[700px]">
           <motion.div className="relative z-10 w-[70%] lg:w-[65%] overflow-hidden shadow-2xl" style={{ y: img1Y }}>
-            <img src={gallery4} alt="Process" className="w-full object-cover" loading="lazy" />
+            <img src={gallery4} alt="Process" className="w-full object-cover" loading="lazy" decoding="async" />
           </motion.div>
           <motion.div className="absolute top-[30%] right-0 w-[65%] lg:w-[60%] overflow-hidden shadow-2xl" style={{ y: img2Y }}>
-            <img src={gallery7} alt="Process" className="w-full object-cover" loading="lazy" />
+            <img src={gallery7} alt="Process" className="w-full object-cover" loading="lazy" decoding="async" />
           </motion.div>
         </div>
       </div>

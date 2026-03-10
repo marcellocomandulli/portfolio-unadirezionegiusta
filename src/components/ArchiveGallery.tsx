@@ -43,7 +43,7 @@ const ParallaxImage = ({ image, index }: { image: GalleryImage; index: number })
       initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7, delay: index * 0.08 }}>
       <motion.div className="w-full h-full" style={{ y, scale }}>
-        <img src={image.src} alt={t(image.titleKey)} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+        <img src={image.src} alt={t(image.titleKey)} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
       </motion.div>
     </motion.div>
   );

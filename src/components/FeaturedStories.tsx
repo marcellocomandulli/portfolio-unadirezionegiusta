@@ -46,7 +46,7 @@ const FeaturedStories = () => {
             initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.15 }}>
             <div className="relative overflow-hidden aspect-[3/2]">
-              <img src={story.img} alt={story.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <img src={story.img} alt={story.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
               <div className="absolute inset-0 bg-background/0 group-hover:bg-background/30 transition-colors duration-500" />
             </div>
             <div className="mt-3 sm:mt-5 flex items-baseline justify-between gap-2">

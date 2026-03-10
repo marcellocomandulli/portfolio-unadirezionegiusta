@@ -13,6 +13,7 @@ const ParallaxDivider = ({ image, alt = "Divider image", height = "h-[60vh]" }: 
           alt={alt}
           className="w-full h-full object-cover"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-background/20" />
       </div>

@@ -7,6 +7,7 @@ interface ParallaxDividerProps {
 const ParallaxDivider = ({ image, alt = "Divider image", height = "h-[60vh]" }: ParallaxDividerProps) => {
   return (
     <div className={`relative ${height}`} style={{ zIndex: 1, clipPath: "inset(0)" }}>
+      <div className="fixed inset-0">
         <img
           src={image}
           alt={alt}

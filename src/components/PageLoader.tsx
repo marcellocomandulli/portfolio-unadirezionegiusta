@@ -3,12 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
 
 const PageLoader = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    if (sessionStorage.getItem("udg_loaded")) return false;
+    return true;
+  });
 
   useEffect(() => {
+    if (!loading) return;
+    sessionStorage.setItem("udg_loaded", "1");
     const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [loading]);
 
   return (
     <AnimatePresence>

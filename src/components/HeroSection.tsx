@@ -20,6 +20,11 @@ const HeroSection = () => {
           muted
           loop
           playsInline
+          preload="auto"
+          webkit-playsinline="true"
+          x-webkit-airplay="deny"
+          disablePictureInPicture
+          ref={(el) => { if (el) el.play().catch(() => {}); }}
           className="w-full h-[130%] object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />

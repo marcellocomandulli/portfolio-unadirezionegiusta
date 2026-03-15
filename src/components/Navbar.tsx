@@ -85,8 +85,11 @@ const Navbar = () => {
 
   const goToArchive = (category: ArchiveCategory, continent?: Continent) => {
     let url = "/archive";
-    if (category !== "all") url += `?category=${category}`;
-    if (continent) url += `&continent=${continent}`;
+    if (category === "all") url = "/archive";
+    else if (category === "travel" && continent)
+      url = `/archive/travel/${continent}`;
+    else if (category === "travel") url = "/archive/travel";
+    else url = `/archive/${category}`;
     navigate(url);
     setArchiveOpen(false);
     setTravelOpen(false);

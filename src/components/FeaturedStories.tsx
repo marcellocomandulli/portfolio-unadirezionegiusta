@@ -17,7 +17,8 @@ const FeaturedStories = () => {
     target: containerRef,
     offset: ["start end", "end start"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-55%"]);
+  // aumentare la distanza di scorrimento per rendere l'effetto più rapido
+  const x = useTransform(scrollYProgress, [0, 1], ["10%", "-80%"]);
 
   const stories = [
     {

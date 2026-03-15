@@ -18,9 +18,17 @@ const gallery8 = () => lazyImg(() => import("@/assets/gallery-8.jpg"));
 
 import { useState, useEffect } from "react";
 
-const LazyParallax = ({ loader, alt }: { loader: () => Promise<string>; alt: string }) => {
+const LazyParallax = ({
+  loader,
+  alt,
+}: {
+  loader: () => Promise<string>;
+  alt: string;
+}) => {
   const [src, setSrc] = useState<string>();
-  useEffect(() => { loader().then(setSrc); }, []);
+  useEffect(() => {
+    loader().then(setSrc);
+  }, []);
   if (!src) return <div className="h-[60vh] bg-background" />;
   return (
     <Suspense fallback={<div className="h-[60vh] bg-background" />}>
@@ -42,13 +50,13 @@ const Index = () => (
     <LazyParallax loader={gallery2} alt="Landscape transition" />
     <div className="relative z-10 bg-background shadow-[0_-20px_40px_-10px_hsl(var(--background)),0_20px_40px_-10px_hsl(var(--background))]">
       <Suspense fallback={null}>
-        <ArchiveGallery />
+        <ProcessSection />
       </Suspense>
     </div>
     <LazyParallax loader={gallery6} alt="Portrait transition" />
     <div className="relative z-10 bg-background shadow-[0_-20px_40px_-10px_hsl(var(--background)),0_20px_40px_-10px_hsl(var(--background))]">
       <Suspense fallback={null}>
-        <ProcessSection />
+        <ArchiveGallery />
       </Suspense>
     </div>
     <LazyParallax loader={gallery8} alt="Detail transition" />

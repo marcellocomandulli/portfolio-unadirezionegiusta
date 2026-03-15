@@ -91,7 +91,7 @@ const ProcessSection = () => {
                   {s.title}
                 </span>
                 <span className="font-body text-base text-muted-foreground">
-                  : {s.desc}
+                  {s.desc}
                 </span>
               </div>
             ))}
@@ -145,6 +145,102 @@ const ProcessSection = () => {
               decoding="async"
             />
           </motion.div>
+        </div>
+      </div>
+      {/* Bottom feature cards */}
+      <div className="max-w-7xl mx-auto mt-12 sm:mt-16">
+        <div className="bg-foreground/4 dark:bg-foreground/6 rounded-2xl px-4 py-8 sm:py-12">
+          <div className="mx-auto max-w-6xl px-2">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
+              {/* Card 1 */}
+              <div className="flex-1 bg-background/0 rounded-lg p-6 flex flex-col items-center text-center gap-3 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="w-6 h-6"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                    />
+                    <circle cx="12" cy="12" r="3" strokeWidth="1.5" />
+                  </svg>
+                </div>
+                <h4 className="font-serif text-lg sm:text-xl text-foreground font-semibold">
+                  Progetti in più paesi
+                </h4>
+                <p className="font-body text-sm text-muted-foreground">
+                  Collaborazioni in Italia e all'estero
+                </p>
+              </div>
+
+              {/* Card 2 */}
+              <div className="flex-1 bg-background/0 rounded-lg p-6 flex flex-col items-center text-center gap-3 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="w-6 h-6"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"
+                    />
+                    <circle cx="12" cy="13" r="3" strokeWidth="1.5" />
+                  </svg>
+                </div>
+                <h4 className="font-serif text-lg sm:text-xl text-foreground font-semibold">
+                  8000+
+                </h4>
+                <p className="font-body text-sm text-muted-foreground">
+                  follower nella nostra pagina di viaggio
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="flex-1 bg-background/0 rounded-lg p-6 flex flex-col items-center text-center gap-3 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="w-6 h-6"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14v-4z"
+                    />
+                    <rect
+                      x="3"
+                      y="6"
+                      width="12"
+                      height="12"
+                      rx="2"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-serif text-lg sm:text-xl text-foreground font-semibold">
+                  Foto • Video • Drone
+                </h4>
+                <p className="font-body text-sm text-muted-foreground">
+                  Produzioni visive complete
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

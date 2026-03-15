@@ -36,15 +36,10 @@ export const translations = {
 
   // Loader
   loaderSubtitle: {
-    it: "Fotografi & Videomaker",
-    en: "Photographers & Videographers",
+    it: "Fotografi e videomaker",
+    en: "Photographers and videographers",
   },
 
-  // Hero
-  heroTagline: {
-    it: "Fotografi e videomaker con base a Roma. \nOgni immagine ha una storia. \nNoi la raccontiamo.",
-    en: "Rome-based photographers and videographers. \nEvery image has a story.\nWe tell it.",
-  },
   heroScroll: { it: "Scorri", en: "Scroll" },
 
   // Featured (In Evidenza)
@@ -86,45 +81,39 @@ export const translations = {
   // Process → Chi Siamo
   processTitle1: { it: "Chi Siamo", en: "About Us" },
   processIntro: {
-    it: "Siamo narratori visivi prima ancora che fotografi e videomaker.\nAbbiamo scelto di lasciare la strada più sicura per inseguire quella più vera: raccontare il mondo attraverso immagini che emozionano, restano e parlano anche quando le parole finiscono.",
-    en: "We are visual storytellers before being photographers and videomakers.\nWe chose to leave the safer path to chase the truest one: telling the world through images that move, stay, and speak even when words run out.",
+    it: "Siamo fotografi e videomaker con base a Roma e raccontiamo storie attraverso immagini e video. Prima ancora che tecnici, ci consideriamo narratori visivi: osserviamo, ascoltiamo e trasformiamo momenti reali in immagini che restano nel tempo.",
+    en: "We are Rome-based photographers and videomakers who tell stories through images and video. More than just technicians, we see ourselves as visual storytellers: we observe, listen, and transform real moments into timeless images.",
   },
   processGrowth: {
-    it: "La nostra crescita professionale è passata attraverso il viaggio. Lavorare in contesti diversi, tra culture e ambienti sempre nuovi, ci ha allenati all'adattabilità, alla rapidità decisionale e alla capacità di valorizzare qualsiasi scenario, leggendo la luce in ogni condizione: dall'alba sulle metropoli alle spiagge al tramonto, dai templi silenziosi ai mercati caotici. Il viaggio ci ha insegnato adattabilità, velocità e rispetto per ogni storia.",
-    en: "Our professional growth came through travel. Working in different contexts, among ever-new cultures and environments, trained us in adaptability, quick decision-making, and the ability to enhance any scenario, reading light in every condition: from dawns over cities to sunsets on beaches, from silent temples to chaotic markets. Travel taught us adaptability, speed, and respect for every story.",
+    it: "Il viaggio è stato la nostra scuola più importante. Lavorare tra città, paesaggi e culture diverse ci ha insegnato ad adattarci rapidamente e a valorizzare ogni scenario, leggendo la luce in ogni situazione. \nAbbiamo realizzato collaborazioni e progetti sia in Italia che all’estero, portando questa esperienza anche nei lavori realizzati a Roma. Parallelamente abbiamo costruito una community online dedicata ai viaggi con oltre 8000 persone. Questo ci ha permesso di sviluppare una forte sensibilità per la comunicazione sui social e per la creazione di contenuti visivi efficaci.",
+    en: "Travel has been our most influential teacher. Working across diverse cities, landscapes, and cultures has taught us to adapt quickly and enhance every setting, reading the light in any situation. \nHaving completed projects both in Italy and abroad, we bring this global experience to everything we do here in Rome. \nIn parallel, we have built an online travel community of over 8,000 people. This has given us a deep understanding of social media communication and the creation of high-impact visual content.",
   },
   processExperience: {
-    it: "Portiamo questa esperienza in ogni progetto:",
-    en: "We bring this experience into every project:",
+    it: "",
+    en: "",
   },
-  processService1Title: { it: "Matrimoni ed eventi", en: "Weddings & events" },
+  processService1Title: { it: "Realizziamo fotografia e video per matrimoni, eventi, reportage e progetti di viaggio, con uno stile che unisce tecnica, sensibilità e gli strumenti giusti per uno storytelling unico.", en: "We specialize in photography and film for weddings, events, reportage, and travel. Our style merges technical skill with sensitivity and the perfect equipment to create a truly unique story." },
   processService1Desc: {
-    it: "discreti quando serve, presenti quando conta. Catturiamo attimi autentici, senza forzature.",
-    en: "discreet when needed, present when it matters. We capture authentic moments, naturally.",
+    it: "",
+    en: "",
   },
-  processService2Title: {
-    it: "Shooting con modelle e ritratti",
-    en: "Model shoots & portraits",
-  },
+  processService2Title: { it: "", en: "" },
   processService2Desc: {
-    it: "attenzione al dettaglio, direzione chiara, estetica pulita ma potente.",
-    en: "attention to detail, clear direction, clean yet powerful aesthetics.",
+    it: "",
+    en: "",
   },
-  processService3Title: {
-    it: "Video di viaggio e storytelling",
-    en: "Travel video & storytelling",
-  },
+  processService3Title: { it: "", en: "" },
   processService3Desc: {
-    it: "ritmo, atmosfera e visione cinematografica, con riprese aeree che ampliano lo sguardo e danno respiro alla narrazione.",
-    en: "rhythm, atmosphere, and cinematic vision, with aerial footage that broadens the perspective and gives the narrative room to breathe.",
+    it: "",
+    en: "",
   },
   processStrength: {
-    it: "La nostra forza è l'unione tra tecnica e sensibilità. Sappiamo gestire la pressione di un evento irripetibile e allo stesso tempo cogliere la spontaneità di un sorriso non programmato.",
-    en: "Our strength lies in the union of technique and sensitivity. We can handle the pressure of a once-in-a-lifetime event while capturing the spontaneity of an unplanned smile.",
+    it: "",
+    en: "",
   },
   processClosing: {
-    it: "Non realizziamo semplici contenuti.\nCostruiamo ricordi, identità visive e storie che meritano di essere raccontate bene.",
-    en: "We don't just create content.\nWe build memories, visual identities, and stories that deserve to be told well.",
+    it: "Non realizziamo semplici contenuti.\nCostruiamo storie che meritano di restare.",
+    en: "We don’t just create content. \nWe craft stories that are meant to last.",
   },
 
   // Contact
@@ -132,8 +121,8 @@ export const translations = {
   contactTitle1: { it: "Restiamo in", en: "Get In" },
   contactTitle2: { it: "Contatto", en: "Touch" },
   contactDesc: {
-    it: "Utilizza per favore il form qui di seguito se hai domande o per avere una quotazione personalizzata.",
-    en: "Please use the form below if you have any questions or to request a personalized quote.",
+    it: "Utilizza il form qui di seguito se hai domande o per avere una quotazione personalizzata.",
+    en: "Use the form below if you have any questions or to request a personalized quote.",
   },
   contactRights: {
     it: "© 2026 Tutti i Diritti Riservati",

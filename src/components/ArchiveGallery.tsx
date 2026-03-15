@@ -147,7 +147,7 @@ const ArchiveGallery = () => {
       >
         <Link
           to="/archive"
-          className="inline-block font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+          className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium h-10 px-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300 font-sans-display tracking-[0.2em] uppercase"
         >
           {t("archiveViewAll")}
         </Link>

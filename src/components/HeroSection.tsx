@@ -6,7 +6,10 @@ import { useLang } from "@/i18n/LanguageContext";
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useLang();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -24,40 +27,64 @@ const HeroSection = () => {
           webkit-playsinline="true"
           x-webkit-airplay="deny"
           disablePictureInPicture
-          ref={(el) => { if (el) el.play().catch(() => {}); }}
+          ref={(el) => {
+            if (el) el.play().catch(() => {});
+          }}
           className="w-full h-[130%] object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent" />
       </motion.div>
 
-      <motion.div className="relative z-10 flex flex-col justify-end h-full pb-32 sm:pb-28 lg:pb-32 px-4 sm:px-6 lg:px-16" style={{ y: textY, opacity }}>
-        <motion.p className="font-sans-display text-[10px] sm:text-xs tracking-[0.4em] uppercase text-primary mb-4 sm:mb-6"
-          initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3 }}>
+      <motion.div
+        className="relative z-10 flex flex-col justify-end h-full pb-32 sm:pb-28 lg:pb-32 px-4 sm:px-6 lg:px-16"
+        style={{ y: textY, opacity }}
+      >
+        <motion.p
+          className="font-sans-display text-sm sm:text-base tracking-[0.4em] uppercase text-primary mb-4 sm:mb-6"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          {t("loaderSubtitle")}
         </motion.p>
-        <motion.h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold leading-[0.9] text-foreground"
-          initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.5 }}>
-          Una Direzione<br /><span className="text-gold-gradient">Giusta</span>
+
+        <motion.h1
+          className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+        >
+          Ogni immagine ha una storia.
+          <br />
+          <span className="text-gold-gradient">Noi la raccontiamo.</span>
         </motion.h1>
-        <motion.p className="font-body text-lg sm:text-xl lg:text-2xl text-muted-foreground mt-4 sm:mt-6 max-w-lg whitespace-pre-line"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
-          {t("heroTagline")}
-        </motion.p>
+
         <motion.a
           href="#contact"
-          onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
-          className="lg:hidden inline-block mt-6 sm:mt-8 w-fit font-sans-display text-[11px] sm:text-xs tracking-[0.2em] uppercase leading-[1.6] text-center bg-primary text-primary-foreground px-8 py-4 hover:bg-primary/90 transition-all duration-300 whitespace-pre-line"
+          onClick={(e) => {
+            e.preventDefault();
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="inline-block font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300 mt-6 w-fit"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          {t("navQuoteLong")}
+          {t("navQuote")}
         </motion.a>
       </motion.div>
 
-      <motion.div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-        animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
-        <span className="font-sans-display text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{t("heroScroll")}</span>
+      <motion.div
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+      >
+        <span className="font-sans-display text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          {t("heroScroll")}
+        </span>
         <div className="w-px h-8 bg-gradient-to-b from-primary/60 to-transparent" />
       </motion.div>
     </section>

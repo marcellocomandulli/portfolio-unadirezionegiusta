@@ -34,7 +34,6 @@ const HeroSection = () => {
       <motion.div className="relative z-10 flex flex-col justify-end h-full pb-32 sm:pb-28 lg:pb-32 px-4 sm:px-6 lg:px-16" style={{ y: textY, opacity }}>
         <motion.p className="font-sans-display text-[10px] sm:text-xs tracking-[0.4em] uppercase text-primary mb-4 sm:mb-6"
           initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3 }}>
-          {t("heroSubtitle")}
         </motion.p>
         <motion.h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold leading-[0.9] text-foreground"
           initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.5 }}>

@@ -8,7 +8,10 @@ export const translations = {
   navContact: { it: "Contatto", en: "Contact" },
   navInquire: { it: "Contattami", en: "Inquire" },
   navQuote: { it: "Creiamo la Tua Storia", en: "Create Your Story" },
-  navQuoteLong: { it: "Creiamo la\nTua Storia", en: "Let's Create\nYour Story" },
+  navQuoteLong: {
+    it: "Creiamo la\nTua Storia",
+    en: "Let's Create\nYour Story",
+  },
 
   // Archive categories
   catAll: { it: "Tutto", en: "All" },
@@ -32,16 +35,20 @@ export const translations = {
   archiveBack: { it: "Torna alla Home", en: "Back to Home" },
 
   // Loader
-  loaderSubtitle: { it: "Fotografi e Videomaker", en: "Photographers & Videomakers" },
+  loaderSubtitle: {
+    it: "Fotografi & Videomaker",
+    en: "Photographers & Videographers",
+  },
 
   // Hero
-  heroSubtitle: { it: "Fotografi e Videomaker", en: "Photographers & Videomakers" },
-  heroTagline: { it: "Ogni immagine ha una storia.\nNoi la raccontiamo.", en: "Every image has a story.\nWe tell it." },
+  heroTagline: {
+    it: "Fotografi e videomaker con base a Roma. \nOgni immagine ha una storia. \nNoi la raccontiamo.",
+    en: "Rome-based photographers and videographers. \nEvery image has a story.\nWe tell it.",
+  },
   heroScroll: { it: "Scorri", en: "Scroll" },
 
   // Featured (In Evidenza)
-  featuredLabel: { it: "Lavori in Evidenza", en: "Featured Work" },
-  featuredTitle: { it: "In Evidenza", en: "Featured" },
+  featuredTitle: { it: "Lavori In Evidenza", en: "Featured Work" },
   story1Title: { it: "Sussurri dell'Alba", en: "Whispers of Dawn" },
   story1Location: { it: "Alpi, Svizzera", en: "Alps, Switzerland" },
   story2Title: { it: "Solitudine al Neon", en: "Neon Solitude" },
@@ -74,47 +81,50 @@ export const translations = {
   archImg12: { it: "Scogliere Selvagge", en: "Wild Cliffs" },
 
   // Gallery section label (home)
-  archiveLabel: { it: "La Collezione", en: "The Collection" },
   archiveTitle: { it: "Galleria", en: "Gallery" },
 
   // Process → Chi Siamo
-  processLabel: { it: "Chi Siamo", en: "About Us" },
-  processTitle1: { it: "Chi", en: "About" },
-  processTitle2: { it: "Siamo", en: "Us" },
+  processTitle1: { it: "Chi Siamo", en: "About Us" },
   processIntro: {
     it: "Siamo narratori visivi prima ancora che fotografi e videomaker.\nAbbiamo scelto di lasciare la strada più sicura per inseguire quella più vera: raccontare il mondo attraverso immagini che emozionano, restano e parlano anche quando le parole finiscono.",
-    en: "We are visual storytellers before being photographers and videomakers.\nWe chose to leave the safer path to chase the truest one: telling the world through images that move, stay, and speak even when words run out."
+    en: "We are visual storytellers before being photographers and videomakers.\nWe chose to leave the safer path to chase the truest one: telling the world through images that move, stay, and speak even when words run out.",
   },
   processGrowth: {
     it: "La nostra crescita professionale è passata attraverso il viaggio. Lavorare in contesti diversi, tra culture e ambienti sempre nuovi, ci ha allenati all'adattabilità, alla rapidità decisionale e alla capacità di valorizzare qualsiasi scenario, leggendo la luce in ogni condizione: dall'alba sulle metropoli alle spiagge al tramonto, dai templi silenziosi ai mercati caotici. Il viaggio ci ha insegnato adattabilità, velocità e rispetto per ogni storia.",
-    en: "Our professional growth came through travel. Working in different contexts, among ever-new cultures and environments, trained us in adaptability, quick decision-making, and the ability to enhance any scenario, reading light in every condition: from dawns over cities to sunsets on beaches, from silent temples to chaotic markets. Travel taught us adaptability, speed, and respect for every story."
+    en: "Our professional growth came through travel. Working in different contexts, among ever-new cultures and environments, trained us in adaptability, quick decision-making, and the ability to enhance any scenario, reading light in every condition: from dawns over cities to sunsets on beaches, from silent temples to chaotic markets. Travel taught us adaptability, speed, and respect for every story.",
   },
   processExperience: {
     it: "Portiamo questa esperienza in ogni progetto:",
-    en: "We bring this experience into every project:"
+    en: "We bring this experience into every project:",
   },
   processService1Title: { it: "Matrimoni ed eventi", en: "Weddings & events" },
   processService1Desc: {
     it: "discreti quando serve, presenti quando conta. Catturiamo attimi autentici, senza forzature.",
-    en: "discreet when needed, present when it matters. We capture authentic moments, naturally."
+    en: "discreet when needed, present when it matters. We capture authentic moments, naturally.",
   },
-  processService2Title: { it: "Shooting con modelle e ritratti", en: "Model shoots & portraits" },
+  processService2Title: {
+    it: "Shooting con modelle e ritratti",
+    en: "Model shoots & portraits",
+  },
   processService2Desc: {
     it: "attenzione al dettaglio, direzione chiara, estetica pulita ma potente.",
-    en: "attention to detail, clear direction, clean yet powerful aesthetics."
+    en: "attention to detail, clear direction, clean yet powerful aesthetics.",
   },
-  processService3Title: { it: "Video di viaggio e storytelling", en: "Travel video & storytelling" },
+  processService3Title: {
+    it: "Video di viaggio e storytelling",
+    en: "Travel video & storytelling",
+  },
   processService3Desc: {
     it: "ritmo, atmosfera e visione cinematografica, con riprese aeree che ampliano lo sguardo e danno respiro alla narrazione.",
-    en: "rhythm, atmosphere, and cinematic vision, with aerial footage that broadens the perspective and gives the narrative room to breathe."
+    en: "rhythm, atmosphere, and cinematic vision, with aerial footage that broadens the perspective and gives the narrative room to breathe.",
   },
   processStrength: {
     it: "La nostra forza è l'unione tra tecnica e sensibilità. Sappiamo gestire la pressione di un evento irripetibile e allo stesso tempo cogliere la spontaneità di un sorriso non programmato.",
-    en: "Our strength lies in the union of technique and sensitivity. We can handle the pressure of a once-in-a-lifetime event while capturing the spontaneity of an unplanned smile."
+    en: "Our strength lies in the union of technique and sensitivity. We can handle the pressure of a once-in-a-lifetime event while capturing the spontaneity of an unplanned smile.",
   },
   processClosing: {
     it: "Non realizziamo semplici contenuti.\nCostruiamo ricordi, identità visive e storie che meritano di essere raccontate bene.",
-    en: "We don't just create content.\nWe build memories, visual identities, and stories that deserve to be told well."
+    en: "We don't just create content.\nWe build memories, visual identities, and stories that deserve to be told well.",
   },
 
   // Contact
@@ -122,10 +132,13 @@ export const translations = {
   contactTitle1: { it: "Restiamo in", en: "Get In" },
   contactTitle2: { it: "Contatto", en: "Touch" },
   contactDesc: {
-    it: "Disponibile per commissioni editoriali, commerciali e di fine art in tutto il mondo.",
-    en: "Available for editorial, commercial, and fine art commissions worldwide."
+    it: "Utilizza per favore il form qui di seguito se hai domande o per avere una quotazione personalizzata.",
+    en: "Please use the form below if you have any questions or to request a personalized quote.",
   },
-  contactRights: { it: "© 2024 Tutti i Diritti Riservati", en: "© 2024 All Rights Reserved" },
+  contactRights: {
+    it: "© 2026 Tutti i Diritti Riservati",
+    en: "© 2026 All Rights Reserved",
+  },
 
   // Contact form
   formName: { it: "Nome", en: "Name" },
@@ -134,12 +147,32 @@ export const translations = {
   formSend: { it: "Invia Messaggio", en: "Send Message" },
   formNamePlaceholder: { it: "Il tuo nome", en: "Your name" },
   formEmailPlaceholder: { it: "La tua email", en: "Your email" },
-  formMessagePlaceholder: { it: "Raccontami del tuo progetto...", en: "Tell me about your project..." },
-  formSuccess: { it: "Messaggio inviato con successo!", en: "Message sent successfully!" },
-  formError: { it: "Errore nell'invio. Riprova.", en: "Error sending. Please try again." },
+  formMessagePlaceholder: {
+    it: "Raccontaci del tuo progetto...",
+    en: "Tell us about your project...",
+  },
+  formSuccess: {
+    it: "Messaggio inviato con successo!",
+    en: "Message sent successfully!",
+  },
+  formError: {
+    it: "Errore nell'invio. Riprova.",
+    en: "Error sending. Please try again.",
+  },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
 
-export type ArchiveCategory = "all" | "shooting" | "travel" | "weddings" | "events";
-export type Continent = "europe" | "asia" | "africa" | "north-america" | "south-america" | "oceania";
+export type ArchiveCategory =
+  | "all"
+  | "shooting"
+  | "travel"
+  | "weddings"
+  | "events";
+export type Continent =
+  | "europe"
+  | "asia"
+  | "africa"
+  | "north-america"
+  | "south-america"
+  | "oceania";

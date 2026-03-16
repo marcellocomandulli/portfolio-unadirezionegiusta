@@ -92,7 +92,10 @@ export const translations = {
     it: "",
     en: "",
   },
-  processService1Title: { it: "Realizziamo fotografia e video per matrimoni, eventi, reportage e progetti di viaggio, con uno stile che unisce tecnica, sensibilità e gli strumenti giusti per uno storytelling unico.", en: "We specialize in photography and film for weddings, events, reportage, and travel. Our style merges technical skill with sensitivity and the perfect equipment to create a truly unique story." },
+  processService1Title: {
+    it: "Realizziamo fotografia e video per matrimoni, eventi, reportage e progetti di viaggio, con uno stile che unisce tecnica, sensibilità e gli strumenti giusti per uno storytelling unico.",
+    en: "We specialize in photography and film for weddings, events, reportage, and travel. Our style merges technical skill with sensitivity and the perfect equipment to create a truly unique story.",
+  },
   processService1Desc: {
     it: "",
     en: "",
@@ -106,6 +109,24 @@ export const translations = {
   processService3Desc: {
     it: "",
     en: "",
+  },
+  processCard1Title: {
+    it: "Progetti Internazionali",
+    en: "International Projects",
+  },
+  processCard1Desc: {
+    it: "Collaborazioni in Italia e all'estero",
+    en: "Collaborations in Italy and abroad",
+  },
+  processCard2Title: { it: "Community", en: "Community" },
+  processCard2Desc: {
+    it: "Follower nella nostra pagina di viaggio",
+    en: "Followers on our travel page",
+  },
+  processCard3Title: { it: "Produzioni Visive", en: "Visual Productions" },
+  processCard3Desc: {
+    it: "Foto, video e riprese con drone",
+    en: "Photo, video and drone shoots",
   },
   processStrength: {
     it: "",

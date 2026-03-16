@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery7 from "@/assets/gallery-7.jpg";
 import { useLang } from "@/i18n/LanguageContext";
@@ -7,10 +7,43 @@ import { useLang } from "@/i18n/LanguageContext";
 const ProcessSection = () => {
   const { t } = useLang();
   const ref = useRef<HTMLDivElement>(null);
+
+  // Counter helper for the followers card
+  const Counter = ({ target }: { target: number }) => {
+    const el = useRef<HTMLSpanElement | null>(null);
+    const inView = useInView(el, { once: true });
+    const [value, setValue] = useState(0);
+
+    useEffect(() => {
+      if (!inView) return;
+      let start: number | null = null;
+      const duration = 800;
+      const step = (timestamp: number) => {
+        if (!start) start = timestamp;
+        const elapsed = timestamp - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = Math.floor(progress * target);
+        setValue(current);
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, [inView, target]);
+
+    return (
+      <span
+        ref={el}
+        className="font-serif text-xl sm:text-2xl text-foreground font-semibold"
+      >
+        {value >= target ? `${target}+` : `${value}+`}
+      </span>
+    );
+  };
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
+
   const img1Y = useTransform(scrollYProgress, [0, 1], [60, -60]);
   const img2Y = useTransform(scrollYProgress, [0, 1], [100, -40]);
 
@@ -46,7 +79,7 @@ const ProcessSection = () => {
 
           {/* Intro */}
           <motion.p
-            className="font-body text-base sm:text-lg text-foreground/90 leading-relaxed mb-6 whitespace-pre-line font-medium"
+            className="font-body text-lg sm:text-xl text-foreground/90 leading-relaxed mb-6 whitespace-pre-line font-medium"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -57,7 +90,7 @@ const ProcessSection = () => {
 
           {/* Growth */}
           <motion.p
-            className="font-body text-base sm:text-lg text-muted-foreground leading-relaxed mb-8"
+            className="font-body text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -68,7 +101,7 @@ const ProcessSection = () => {
 
           {/* Experience intro */}
           <motion.p
-            className="font-body text-base sm:text-lg text-foreground/90 leading-relaxed mb-4 font-medium"
+            className="font-body text-lg sm:text-xl text-foreground/90 leading-relaxed mb-4 font-medium"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -87,10 +120,10 @@ const ProcessSection = () => {
           >
             {services.map((s, i) => (
               <div key={i}>
-                <span className="font-serif text-lg sm:text-xl text-foreground">
+                <span className="font-serif text-xl sm:text-2xl text-foreground">
                   {s.title}
                 </span>
-                <span className="font-body text-base text-muted-foreground">
+                <span className="font-body text-lg text-muted-foreground block">
                   {s.desc}
                 </span>
               </div>
@@ -99,7 +132,7 @@ const ProcessSection = () => {
 
           {/* Strength */}
           <motion.p
-            className="font-body text-base sm:text-lg text-muted-foreground leading-relaxed mb-6"
+            className="font-body text-lg sm:text-xl text-muted-foreground leading-relaxed mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -110,7 +143,7 @@ const ProcessSection = () => {
 
           {/* Closing */}
           <motion.p
-            className="font-serif text-xl sm:text-2xl text-foreground/90 italic leading-relaxed whitespace-pre-line"
+            className="font-serif text-2xl sm:text-3xl text-foreground/90 italic leading-relaxed whitespace-pre-line"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -147,79 +180,89 @@ const ProcessSection = () => {
           </motion.div>
         </div>
       </div>
+
       {/* Bottom feature cards */}
       <div className="max-w-7xl mx-auto mt-12 sm:mt-16">
         <div className="bg-foreground/4 dark:bg-foreground/6 rounded-2xl px-4 py-8 sm:py-12">
           <div className="mx-auto max-w-6xl px-2">
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
               {/* Card 1 */}
-              <div className="flex-1 bg-background/0 rounded-lg p-6 flex flex-col items-center text-center gap-3 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="flex-1 bg-background/0 border border-border p-7 flex flex-col items-center text-center gap-3">
+                <div className="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="w-6 h-6"
+                    className="w-9 h-9"
                     stroke="currentColor"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                      strokeWidth="1.6"
+                      d="M3 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"
                     />
-                    <circle cx="12" cy="12" r="3" strokeWidth="1.5" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.6"
+                      d="M8 3v4"
+                    />
                   </svg>
                 </div>
-                <h4 className="font-serif text-lg sm:text-xl text-foreground font-semibold">
-                  Progetti in più paesi
+                <h4 className="font-serif text-xl sm:text-2xl text-foreground font-semibold">
+                  {t("processCard1Title")}
                 </h4>
-                <p className="font-body text-sm text-muted-foreground">
-                  Collaborazioni in Italia e all'estero
+                <p className="font-body text-lg sm:text-xl text-muted-foreground">
+                  {t("processCard1Desc")}
                 </p>
               </div>
 
               {/* Card 2 */}
-              <div className="flex-1 bg-background/0 rounded-lg p-6 flex flex-col items-center text-center gap-3 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="flex-1 bg-background/0 border border-border p-7 flex flex-col items-center text-center gap-3">
+                <div className="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="w-6 h-6"
+                    className="w-9 h-9"
                     stroke="currentColor"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"
+                      strokeWidth="1.6"
+                      d="M17 20h5v-2a4 4 0 0 0-4-4h-1"
                     />
-                    <circle cx="12" cy="13" r="3" strokeWidth="1.5" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.6"
+                      d="M9 20H4v-2a4 4 0 0 1 4-4h1"
+                    />
+                    <circle cx="12" cy="7" r="3" strokeWidth="1.6" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-lg sm:text-xl text-foreground font-semibold">
-                  8000+
-                </h4>
-                <p className="font-body text-sm text-muted-foreground">
-                  follower nella nostra pagina di viaggio
+                <Counter target={8000} />
+                <p className="font-body text-lg sm:text-xl text-muted-foreground">
+                  {t("processCard2Desc")}
                 </p>
               </div>
 
               {/* Card 3 */}
-              <div className="flex-1 bg-background/0 rounded-lg p-6 flex flex-col items-center text-center gap-3 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="flex-1 bg-background/0 border border-border p-7 flex flex-col items-center text-center gap-3">
+                <div className="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="w-6 h-6"
+                    className="w-9 h-9"
                     stroke="currentColor"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="1.5"
+                      strokeWidth="1.6"
                       d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14v-4z"
                     />
                     <rect
@@ -228,15 +271,15 @@ const ProcessSection = () => {
                       width="12"
                       height="12"
                       rx="2"
-                      strokeWidth="1.5"
+                      strokeWidth="1.6"
                     />
                   </svg>
                 </div>
-                <h4 className="font-serif text-lg sm:text-xl text-foreground font-semibold">
-                  Foto • Video • Drone
+                <h4 className="font-serif text-xl sm:text-2xl text-foreground font-semibold">
+                  {t("processCard3Title")}
                 </h4>
-                <p className="font-body text-sm text-muted-foreground">
-                  Produzioni visive complete
+                <p className="font-body text-lg sm:text-xl text-muted-foreground">
+                  {t("processCard3Desc")}
                 </p>
               </div>
             </div>

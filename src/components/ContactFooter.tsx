@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
+import sideImage from "@/assets/gallery-2.jpg";
 
 const ContactFooter = () => {
   const { t } = useLang();
@@ -26,7 +27,6 @@ const ContactFooter = () => {
         },
         body: JSON.stringify(form),
       });
-
       if (response.ok) {
         toast({ title: t("formSuccess") });
         setForm({ name: "", email: "", message: "" });
@@ -85,68 +85,88 @@ const ContactFooter = () => {
           {t("contactDesc")}
         </motion.p>
 
-        {/* Contact Form */}
-        <motion.form
-          action="https://formspree.io/f/mbdznwwe"
-          method="POST"
-          onSubmit={handleSubmit}
-          className="max-w-md mx-auto text-left space-y-5"
+        {/* Contact: image left, form right */}
+        <motion.div
+          className="max-w-4xl mx-auto flex flex-col md:flex-row items-stretch gap-6 px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-          <div>
-            <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
-              {t("formName")}
-            </label>
-            <Input
-              name="name"
-              required
-              maxLength={100}
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              placeholder={t("formNamePlaceholder")}
-              className="bg-background/50 border-border focus:border-primary"
-            />
-          </div>
-          <div>
-            <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
-              {t("formEmail")}
-            </label>
-            <Input
-              name="email"
-              required
-              type="email"
-              maxLength={255}
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              placeholder={t("formEmailPlaceholder")}
-              className="bg-background/50 border-border focus:border-primary"
-            />
-          </div>
-          <div>
-            <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
-              {t("formMessage")}
-            </label>
-            <Textarea
-              name="message"
-              required
-              maxLength={1000}
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              placeholder={t("formMessagePlaceholder")}
-              className="bg-background/50 border-border focus:border-primary min-h-[120px]"
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={sending}
-            className="w-full font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300 disabled:opacity-50"
+          <motion.div
+            className="w-full md:w-1/2 flex-shrink-0 rounded-lg overflow-hidden"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
           >
-            {sending ? "..." : t("formSend")}
-          </button>
-        </motion.form>
+            <img
+              src={sideImage}
+              alt="Contact"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          <motion.form
+            action="https://formspree.io/f/mbdznwwe"
+            method="POST"
+            onSubmit={handleSubmit}
+            className="w-full md:w-1/2 text-left space-y-5"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <div>
+              <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
+                {t("formName")}
+              </label>
+              <Input
+                name="name"
+                required
+                maxLength={100}
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                placeholder={t("formNamePlaceholder")}
+                className="bg-background/50 border-border focus:border-primary"
+              />
+            </div>
+            <div>
+              <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
+                {t("formEmail")}
+              </label>
+              <Input
+                name="email"
+                required
+                type="email"
+                maxLength={255}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                placeholder={t("formEmailPlaceholder")}
+                className="bg-background/50 border-border focus:border-primary"
+              />
+            </div>
+            <div>
+              <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
+                {t("formMessage")}
+              </label>
+              <Textarea
+                name="message"
+                required
+                maxLength={1000}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                placeholder={t("formMessagePlaceholder")}
+                className="bg-background/50 border-border focus:border-primary min-h-[120px]"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={sending}
+              className="w-full font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300 disabled:opacity-50"
+            >
+              {sending ? "..." : t("formSend")}
+            </button>
+          </motion.form>
+        </motion.div>
 
         <div className="mt-16 sm:mt-24 pt-6 sm:pt-8 border-t border-border flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <span className="flex items-center gap-2 font-serif text-foreground tracking-widest text-sm">

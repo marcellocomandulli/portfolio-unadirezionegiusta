@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Archive from "./pages/Archive";
 import ArchiveCategory from "./pages/ArchiveCategory";
 import NotFound from "./pages/NotFound";
+import WhatsAppFloating from "./components/WhatsAppFloating";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,11 @@ const App = () => (
       <LanguageProvider>
         <Toaster />
         <Sonner />
+        {/* WhatsApp floating: replace phone with your number in international format without + */}
+        <WhatsAppFloating
+          phone="393401234567"
+          message="Ciao! Vorrei saperne di più sul tuo progetto."
+        />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

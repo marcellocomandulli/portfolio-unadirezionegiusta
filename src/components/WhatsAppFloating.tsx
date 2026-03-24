@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  phone: "393290653985"; // in formato internazionale senza +, es: "393401234567"
+  phone: "393290653985";
   message?: string;
 }
 

@@ -13,7 +13,7 @@ const ContactFooter = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
 
@@ -87,6 +87,8 @@ const ContactFooter = () => {
 
         {/* Contact Form */}
         <motion.form
+          action="https://formspree.io/f/mbdznwwe"
+          method="POST"
           onSubmit={handleSubmit}
           className="max-w-md mx-auto text-left space-y-5"
           initial={{ opacity: 0, y: 20 }}

@@ -16,29 +16,72 @@ const ContactFooter = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // Simulate send — replace with real endpoint when backend is connected
-    setTimeout(() => {
-      toast({ title: t("formSuccess") });
-      setForm({ name: "", email: "", message: "" });
+
+    try {
+      const response = await fetch("https://formspree.io/f/mbdznwwe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        toast({ title: t("formSuccess") });
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        // Se Formspree risponde con un errore (es. quota superata)
+        toast({
+          title: "Errore",
+          description: "C'è stato un problema. Riprova più tardi.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      // Errore di rete
+      toast({
+        title: "Errore di connessione",
+        description: "Controlla la tua rete e riprova.",
+        variant: "destructive",
+      });
+    } finally {
       setSending(false);
-    }, 1000);
+    }
   };
 
   return (
-    <footer id="contact" className="relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 grain">
+    <footer
+      id="contact"
+      className="relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 grain"
+    >
       <div className="absolute inset-0 bg-gradient-to-t from-card to-background" />
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <motion.p className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4 sm:mb-6"
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+        <motion.p
+          className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4 sm:mb-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
           {t("contactLabel")}
         </motion.p>
-        <motion.h2 className="font-serif text-3xl sm:text-5xl lg:text-8xl text-foreground mb-6 sm:mb-8"
-          initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          {t("contactTitle1")} <span className="text-gold-gradient">{t("contactTitle2")}</span>
+        <motion.h2
+          className="font-serif text-3xl sm:text-5xl lg:text-8xl text-foreground mb-6 sm:mb-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {t("contactTitle1")}{" "}
+          <span className="text-gold-gradient">{t("contactTitle2")}</span>
         </motion.h2>
-        <motion.p className="font-body text-base sm:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-lg mx-auto px-4"
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+        <motion.p
+          className="font-body text-base sm:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-lg mx-auto px-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
           {t("contactDesc")}
         </motion.p>
 
@@ -56,6 +99,7 @@ const ContactFooter = () => {
               {t("formName")}
             </label>
             <Input
+              name="name"
               required
               maxLength={100}
               value={form.name}
@@ -69,6 +113,7 @@ const ContactFooter = () => {
               {t("formEmail")}
             </label>
             <Input
+              name="email"
               required
               type="email"
               maxLength={255}
@@ -83,6 +128,7 @@ const ContactFooter = () => {
               {t("formMessage")}
             </label>
             <Textarea
+              name="message"
               required
               maxLength={1000}
               value={form.message}
@@ -102,7 +148,11 @@ const ContactFooter = () => {
 
         <div className="mt-16 sm:mt-24 pt-6 sm:pt-8 border-t border-border flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <span className="flex items-center gap-2 font-serif text-foreground tracking-widest text-sm">
-            <img src={logo} alt="Una Direzione Giusta" className="brightness-0 invert h-6" />
+            <img
+              src={logo}
+              alt="Una Direzione Giusta"
+              className="brightness-0 invert h-6"
+            />
             UNA DIREZIONE GIUSTA
           </span>
           <a
@@ -114,7 +164,9 @@ const ContactFooter = () => {
           >
             <Instagram size={22} />
           </a>
-          <span className="font-sans-display text-xs text-muted-foreground">{t("contactRights")}</span>
+          <span className="font-sans-display text-xs text-muted-foreground">
+            {t("contactRights")}
+          </span>
         </div>
       </div>
     </footer>

@@ -1,8 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLang } from "@/i18n/LanguageContext";
 import logo from "@/assets/logo.png";
 
 const PageLoader = () => {
+  const { t } = useLang();
   const [loading, setLoading] = useState(() => {
     if (sessionStorage.getItem("udg_loaded")) return false;
     return true;
@@ -51,7 +53,7 @@ const PageLoader = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            Photography & Storytelling
+            {t("loaderSubtitle")}
           </motion.p>
         </motion.div>
       )}

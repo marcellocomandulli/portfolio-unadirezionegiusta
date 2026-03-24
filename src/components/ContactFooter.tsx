@@ -94,7 +94,7 @@ const ContactFooter = () => {
           transition={{ delay: 0.4 }}
         >
           <motion.div
-            className="w-full md:w-1/2 flex-shrink-0 rounded-lg overflow-hidden"
+            className="hidden sm:block w-full md:w-1/2 flex-shrink-0 overflow-hidden"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
@@ -126,7 +126,7 @@ const ContactFooter = () => {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder={t("formNamePlaceholder")}
-                className="bg-background/50 border-border focus:border-primary"
+                className="bg-background/50 border-border focus:border-primary rounded-none"
               />
             </div>
             <div>
@@ -141,7 +141,7 @@ const ContactFooter = () => {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder={t("formEmailPlaceholder")}
-                className="bg-background/50 border-border focus:border-primary"
+                className="bg-background/50 border-border focus:border-primary rounded-none"
               />
             </div>
             <div>
@@ -155,13 +155,13 @@ const ContactFooter = () => {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 placeholder={t("formMessagePlaceholder")}
-                className="bg-background/50 border-border focus:border-primary min-h-[120px]"
+                className="bg-background/50 border-border focus:border-primary min-h-[120px] rounded-none"
               />
             </div>
             <button
               type="submit"
               disabled={sending}
-              className="w-full font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300 disabled:opacity-50"
+              className="w-full font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300 disabled:opacity-50 rounded-none"
             >
               {sending ? "..." : t("formSend")}
             </button>

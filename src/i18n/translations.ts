@@ -120,8 +120,8 @@ export const translations = {
   },
   processCard2Title: { it: "Community", en: "Community" },
   processCard2Desc: {
-    it: "Follower nella nostra pagina di viaggio",
-    en: "Followers on our travel page",
+    it: "Follower nella nostra pagina Instagram",
+    en: "Followers on our Instagram page",
   },
   processCard3Title: { it: "Produzioni Visive", en: "Visual Productions" },
   processCard3Desc: {

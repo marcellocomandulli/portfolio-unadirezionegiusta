@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  phone: "393290653985";
+  phone: string;
   message?: string;
 }
 

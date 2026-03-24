@@ -20,8 +20,8 @@ const App = () => (
         <Sonner />
         {/* WhatsApp floating: replace phone with your number in international format without + */}
         <WhatsAppFloating
-          phone="393401234567"
-          message="Ciao! Vorrei saperne di più sul tuo progetto."
+          phone="393290653985"
+          message="Ciao! Vorrei avere alcune informazioni su shooting e video."
         />
         <BrowserRouter>
           <Routes>

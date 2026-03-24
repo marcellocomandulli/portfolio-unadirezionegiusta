@@ -7,7 +7,7 @@ interface Props {
 
 const WhatsAppFloating: React.FC<Props> = ({
   phone,
-  message = "Ciao! Vorrei saperne di più.",
+  message = "Ciao! Vorrei avere alcune informazioni su shooting e video.",
 }) => {
   const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 

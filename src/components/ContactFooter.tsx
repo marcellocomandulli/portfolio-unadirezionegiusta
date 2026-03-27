@@ -169,14 +169,17 @@ const ContactFooter = () => {
         </motion.div>
 
         <div className="mt-16 sm:mt-24 pt-6 sm:pt-8 border-t border-border flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          <span className="flex items-center gap-2 font-serif text-foreground tracking-widest text-sm">
+          <div className="flex items-center gap-2 font-serif text-foreground tracking-widest text-sm">
             <img
               src={logo}
               alt="Una Direzione Giusta"
               className="brightness-0 invert h-6"
             />
-            UNA DIREZIONE GIUSTA
-          </span>
+            <div className="leading-[0.95]">
+              <div>UNA DIREZIONE GIUSTA</div>
+              <small className="text-xs opacity-90">{t("siteSubtitle")}</small>
+            </div>
+          </div>
           <a
             href="https://www.instagram.com/unadirezione_giusta/"
             target="_blank"
@@ -187,7 +190,7 @@ const ContactFooter = () => {
             <Instagram size={22} />
           </a>
           <span className="font-sans-display text-xs text-muted-foreground">
-            {t("contactRights")}
+            {t("contactRights")} • {t("footerBrand")}
           </span>
         </div>
       </div>

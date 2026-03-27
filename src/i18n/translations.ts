@@ -2,15 +2,15 @@ export type Lang = "it" | "en";
 
 export const translations = {
   // Navbar
-  navStories: { it: "In Evidenza", en: "Featured" },
+  navStories: { it: "Servizi", en: "Services" },
   navArchive: { it: "Galleria", en: "Gallery" },
   navProcess: { it: "Chi Siamo", en: "About Us" },
   navContact: { it: "Contatto", en: "Contact" },
   navInquire: { it: "Contattami", en: "Inquire" },
   navQuote: { it: "Creiamo la Tua Storia", en: "Create Your Story" },
   navQuoteLong: {
-    it: "Creiamo la\nTua Storia",
-    en: "Let's Create\nYour Story",
+    it: "Contattaci",
+    en: "Contact us",
   },
 
   // Archive categories
@@ -42,8 +42,11 @@ export const translations = {
 
   heroScroll: { it: "Scorri", en: "Scroll" },
 
-  // Featured (In Evidenza)
-  featuredTitle: { it: "Lavori In Evidenza", en: "Featured Work" },
+  // Site branding
+  siteSubtitle: { it: "Foto e Video", en: "Photo and Video" },
+
+  // Services (replaces Featured)
+  featuredTitle: { it: "Servizi", en: "Services" },
   story1Title: { it: "Sussurri dell'Alba", en: "Whispers of Dawn" },
   story1Location: { it: "Alpi, Svizzera", en: "Alps, Switzerland" },
   story2Title: { it: "Solitudine al Neon", en: "Neon Solitude" },
@@ -148,6 +151,34 @@ export const translations = {
   contactRights: {
     it: "© 2026 Tutti i Diritti Riservati",
     en: "© 2026 All Rights Reserved",
+  },
+
+  // Footer brand appended to copyright
+  footerBrand: {
+    it: "Una Direzione Giusta - Foto e Video Italy",
+    en: "Una Direzione Giusta - Photo and Video Italy",
+  },
+
+  // Hero title parts (translatable)
+  heroTitlePart1: { it: "Trasformiamo i tuoi", en: "We transform your" },
+  heroTitleEm: { it: "momenti", en: "moments" },
+  heroTitlePart2: { it: "in foto e video", en: "into photo and video" },
+
+  // Services list (used in Services section)
+  servicePhoto: { it: "Fotografia", en: "Photography" },
+  servicePhotoDesc: {
+    it: "Ritratti, eventi e reportage",
+    en: "Portraits, events and reportage",
+  },
+  serviceVideo: { it: "Video", en: "Video" },
+  serviceVideoDesc: {
+    it: "Produzioni creative e corporate",
+    en: "Creative and corporate productions",
+  },
+  serviceDrone: { it: "Riprese con Drone", en: "Drone Footage" },
+  serviceDroneDesc: {
+    it: "Riprese aeree professionali",
+    en: "Professional aerial footage",
   },
 
   // Contact form

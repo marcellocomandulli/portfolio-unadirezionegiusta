@@ -111,7 +111,7 @@ const Navbar = () => {
   };
 
   const simpleLinks = [
-    { label: t("navStories"), id: "stories" },
+    { label: t("navStories"), id: "services" },
     { label: t("navProcess"), id: "about" },
     { label: t("navContact"), id: "contact" },
   ];
@@ -138,9 +138,12 @@ const Navbar = () => {
               className="brightness-0 invert transition-all duration-500"
               style={{ height: scrolled ? "44px" : "56px" }}
             />
-            <span className="hidden md:inline text-sm md:text-base lg:text-lg">
-              UNA DIREZIONE GIUSTA
-            </span>
+            <div className="hidden md:flex flex-col leading-[0.95]">
+              <span className="text-sm md:text-base lg:text-lg">
+                UNA DIREZIONE GIUSTA
+              </span>
+              <small className="text-xs opacity-90">{t("siteSubtitle")}</small>
+            </div>
           </a>
 
           {/* Desktop nav links */}
@@ -148,7 +151,7 @@ const Navbar = () => {
             <li ref={archiveRef} className="relative">
               <button
                 onClick={() => setArchiveOpen(!archiveOpen)}
-                className="font-sans-display text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1"
+                className="font-sans-display text-xs tracking-[0.2em] uppercase text-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1"
               >
                 {t("navArchive")}
                 <ChevronDown
@@ -176,7 +179,7 @@ const Navbar = () => {
                             >
                               <button
                                 onClick={() => goToArchive("travel")}
-                                className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary px-4 py-2 transition-colors flex items-center justify-between gap-2"
+                                className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors flex items-center justify-between gap-2"
                               >
                                 {t(cat.labelKey as any)}
                                 <ChevronRight size={10} />
@@ -205,7 +208,7 @@ const Navbar = () => {
                                               cont.continent,
                                             )
                                           }
-                                          className="w-full text-left font-sans-display text-xs tracking-[0.1em] uppercase text-muted-foreground hover:text-primary px-4 py-2 transition-colors"
+                                          className="w-full text-left font-sans-display text-xs tracking-[0.1em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors"
                                         >
                                           {t(cont.labelKey as any)}
                                         </button>
@@ -217,7 +220,7 @@ const Navbar = () => {
                           ) : (
                             <button
                               onClick={() => goToArchive(cat.category)}
-                              className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary px-4 py-2 transition-colors"
+                              className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors"
                             >
                               {t(cat.labelKey as any)}
                             </button>
@@ -233,7 +236,7 @@ const Navbar = () => {
                 <a
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className="font-sans-display text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
+                  className="font-sans-display text-xs tracking-[0.2em] uppercase text-foreground hover:text-primary transition-colors duration-300"
                 >
                   {link.label}
                 </a>
@@ -245,7 +248,7 @@ const Navbar = () => {
           <div className="absolute right-6 lg:right-12 hidden lg:flex items-center gap-3">
             <button
               onClick={toggleLang}
-              className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300"
+              className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300"
             >
               {lang === "it" ? "EN" : "IT"}
             </button>
@@ -265,7 +268,7 @@ const Navbar = () => {
           <div className="absolute right-6 lg:right-12 flex items-center gap-3 lg:hidden">
             <button
               onClick={toggleLang}
-              className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-muted-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300"
+              className="font-sans-display text-xs tracking-[0.2em] uppercase border border-border text-foreground px-3 py-1.5 hover:text-primary hover:border-primary/30 transition-all duration-300"
             >
               {lang === "it" ? "EN" : "IT"}
             </button>
@@ -348,7 +351,7 @@ const Navbar = () => {
                                   onClick={() =>
                                     setMobileTravelOpen(!mobileTravelOpen)
                                   }
-                                  className="font-sans-display text-lg tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                                  className="font-sans-display text-lg tracking-[0.15em] uppercase text-foreground hover:text-primary transition-colors flex items-center gap-1"
                                 >
                                   {t(cat.labelKey as any)}
                                   <ChevronDown
@@ -391,7 +394,7 @@ const Navbar = () => {
                             ) : (
                               <button
                                 onClick={() => goToArchive(cat.category)}
-                                className="font-sans-display text-lg tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors"
+                                className="font-sans-display text-lg tracking-[0.15em] uppercase text-foreground hover:text-primary transition-colors"
                               >
                                 {t(cat.labelKey as any)}
                               </button>

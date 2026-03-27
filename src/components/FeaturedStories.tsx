@@ -20,60 +20,27 @@ const FeaturedStories = () => {
   // aumentare la distanza di scorrimento per rendere l'effetto più rapido
   const x = useTransform(scrollYProgress, [0, 1], ["10%", "-80%"]);
 
-  const stories = [
+  const services = [
     {
+      title: t("servicePhoto"),
+      desc: t("servicePhotoDesc"),
       img: gallery1,
-      title: t("story1Title"),
-      location: t("story1Location"),
-      year: "2024",
     },
     {
-      img: gallery3,
-      title: t("story2Title"),
-      location: t("story2Location"),
-      year: "2023",
-    },
-    {
+      title: t("serviceVideo"),
+      desc: t("serviceVideoDesc"),
       img: gallery9,
-      title: t("story5Title"),
-      location: t("story5Location"),
-      year: "2024",
     },
     {
-      img: gallery5,
-      title: t("story3Title"),
-      location: t("story3Location"),
-      year: "2024",
-    },
-    {
-      img: gallery10,
-      title: t("story6Title"),
-      location: t("story6Location"),
-      year: "2023",
-    },
-    {
-      img: gallery8,
-      title: t("story4Title"),
-      location: t("story4Location"),
-      year: "2023",
-    },
-    {
+      title: t("serviceDrone"),
+      desc: t("serviceDroneDesc"),
       img: gallery11,
-      title: t("story7Title"),
-      location: t("story7Location"),
-      year: "2024",
-    },
-    {
-      img: gallery12,
-      title: t("story8Title"),
-      location: t("story8Location"),
-      year: "2023",
     },
   ];
 
   return (
     <section
-      id="stories"
+      id="services"
       ref={containerRef}
       className="py-16 sm:py-24 lg:py-32 overflow-hidden grain"
     >
@@ -94,46 +61,30 @@ const FeaturedStories = () => {
           {t("featuredTitle")}
         </motion.h2>
       </div>
-
-      <motion.div
-        className="flex gap-4 sm:gap-6 lg:gap-8 pl-4 sm:pl-6 lg:pl-16"
-        style={{ x }}
-      >
-        {stories.map((story, i) => (
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-16">
+        {services.map((s, i) => (
           <motion.div
             key={i}
-            className="relative flex-shrink-0 group cursor-pointer w-[clamp(240px,32vw,560px)]"
-            initial={{ opacity: 0, y: 40 }}
+            className="relative group overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: i * 0.15 }}
+            transition={{ duration: 0.6, delay: i * 0.08 }}
           >
-            <div className="relative overflow-hidden aspect-[3/2]">
+            <div className="aspect-[4/3] overflow-hidden">
               <img
-                src={story.img}
-                alt={story.title}
+                src={s.img}
+                alt={s.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
               />
-              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/30 transition-colors duration-500" />
             </div>
-            <div className="mt-3 sm:mt-5 flex items-baseline justify-between gap-2">
-              <div className="min-w-0">
-                <h3 className="font-serif text-base sm:text-xl lg:text-2xl text-foreground group-hover:text-primary transition-colors duration-300 truncate">
-                  {story.title}
-                </h3>
-                <p className="font-body text-xs sm:text-sm text-muted-foreground mt-1">
-                  {story.location}
-                </p>
-              </div>
-              <span className="font-sans-display text-[10px] sm:text-xs text-muted-foreground tracking-wider flex-shrink-0">
-                {story.year}
-              </span>
+            <div className="mt-4">
+              <h3 className="font-serif text-xl text-foreground">{s.title}</h3>
+              <p className="text-muted-foreground mt-2">{s.desc}</p>
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

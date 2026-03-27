@@ -180,6 +180,38 @@ export const translations = {
     it: "Riprese aeree professionali",
     en: "Professional aerial footage",
   },
+  // Specific services requested
+  serviceWeddingTitle: {
+    it: "Matrimoni e pre-matrimoniali",
+    en: "Weddings & Pre-weddings",
+  },
+  serviceWeddingDesc: {
+    it: "Raccontiamo il vostro giorno con uno stile spontaneo e autentico, dalla preparazione fino al ricevimento.",
+    en: "We tell your day with a spontaneous, authentic style — from preparation to reception.",
+  },
+  serviceShootingTitle: { it: "Shooting", en: "Shooting" },
+  serviceShootingDesc: {
+    it: "Shooting singoli, coppie, modelle, premaman e new-born per risaltare al 100% il soggetto",
+    en: "Individual, couple, model, maternity and newborn shoots to make the subject shine 100%.",
+  },
+  serviceEventsTitle: { it: "Eventi", en: "Events" },
+  serviceEventsDesc: {
+    it: "Compleanni, battesimi, comunioni e anniversari raccontati in modo discreto e naturale.",
+    en: "Birthdays, christenings, communions and anniversaries captured discreetly and naturally.",
+  },
+  btnViewGallery: { it: "Vai alla galleria", en: "View gallery" },
+  // Additional CTAs and section texts
+  heroCTA: { it: "Parlaci del tuo progetto", en: "Tell us about your project" },
+  navCTA: { it: "Contattaci", en: "Contact us" },
+
+  servicesPurpose: {
+    it: "Il nostro scopo è di farti rivivere quelle emozioni come la prima volta",
+    en: "Our purpose is to make you relive those emotions as if for the first time",
+  },
+  btnRequestConsult: {
+    it: "Richiedi un consulto gratuito",
+    en: "Request a free consultation",
+  },
 
   // Contact form
   formName: { it: "Nome", en: "Name" },

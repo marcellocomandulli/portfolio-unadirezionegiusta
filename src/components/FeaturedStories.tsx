@@ -9,6 +9,7 @@ import gallery10 from "@/assets/gallery-10.jpg";
 import gallery11 from "@/assets/gallery-11.jpg";
 import gallery12 from "@/assets/gallery-12.jpg";
 import { useLang } from "@/i18n/LanguageContext";
+import { useNavigate } from "react-router-dom";
 
 const FeaturedStories = () => {
   const { t } = useLang();
@@ -20,20 +21,22 @@ const FeaturedStories = () => {
   // aumentare la distanza di scorrimento per rendere l'effetto più rapido
   const x = useTransform(scrollYProgress, [0, 1], ["10%", "-80%"]);
 
+  const navigate = useNavigate();
+
   const services = [
     {
-      title: t("servicePhoto"),
-      desc: t("servicePhotoDesc"),
+      title: t("serviceWeddingTitle"),
+      desc: t("serviceWeddingDesc"),
       img: gallery1,
     },
     {
-      title: t("serviceVideo"),
-      desc: t("serviceVideoDesc"),
+      title: t("serviceShootingTitle"),
+      desc: t("serviceShootingDesc"),
       img: gallery9,
     },
     {
-      title: t("serviceDrone"),
-      desc: t("serviceDroneDesc"),
+      title: t("serviceEventsTitle"),
+      desc: t("serviceEventsDesc"),
       img: gallery11,
     },
   ];

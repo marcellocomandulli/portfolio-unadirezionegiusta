@@ -74,7 +74,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          {t("navQuote")}
+          {t("heroCTA")}
         </motion.a>
       </motion.div>
 

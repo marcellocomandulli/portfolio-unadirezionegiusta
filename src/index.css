@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -45,9 +45,9 @@
     --sidebar-border: 30 10% 22%;
     --sidebar-ring: 40 45% 58%;
 
-    --font-serif: 'Playfair Display', serif;
-    --font-body: 'Cormorant Garamond', serif;
-    --font-sans: 'Space Grotesk', sans-serif;
+    --font-serif: "Playfair Display", serif;
+    --font-body: "Cormorant Garamond", serif;
+    --font-sans: "Space Grotesk", sans-serif;
 
     --glass-bg: hsla(30, 8%, 12%, 0.75);
     --glass-border: hsla(35, 25%, 88%, 0.08);
@@ -66,7 +66,12 @@
     font-family: var(--font-body);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-serif);
   }
 }
@@ -91,7 +96,7 @@
     position: relative;
   }
   .grain::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -102,9 +107,25 @@
     z-index: 1;
   }
   .text-gold-gradient {
-    background: linear-gradient(135deg, hsl(40, 45%, 58%), hsl(40, 55%, 70%), hsl(40, 45%, 58%));
+    background: linear-gradient(
+      135deg,
+      hsl(40, 45%, 58%),
+      hsl(40, 55%, 70%),
+      hsl(40, 45%, 58%)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  .button-minimal {
+    letter-spacing: 1px;
+    border-bottom: 1px solid currentColor;
+    background: transparent;
+    padding: 0.125rem 0.25rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 }

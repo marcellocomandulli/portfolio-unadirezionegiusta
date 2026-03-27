@@ -116,22 +116,33 @@ const ArchiveGallery = () => {
       id="archive"
       className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 grain"
     >
-      <div className="mb-10 sm:mb-16">
-        <motion.p
-          className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        ></motion.p>
-        <motion.h2
-          className="font-serif text-3xl sm:text-4xl lg:text-6xl text-foreground"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          {t("archiveTitle")}
-        </motion.h2>
+      <div className="mb-10 sm:mb-16 flex items-center justify-between">
+        <div>
+          <motion.p
+            className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          ></motion.p>
+          <motion.h2
+            className="font-serif text-3xl sm:text-4xl lg:text-6xl text-foreground"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            {t("archiveTitle")}
+          </motion.h2>
+        </div>
+        <div className="ml-4">
+          <Link
+            to="/archive"
+            className="hidden md:inline-flex button-minimal text-base lg:text-lg font-medium text-primary items-center gap-2"
+          >
+            {t("btnViewGallery")}
+            <span aria-hidden>→</span>
+          </Link>
+        </div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
         {images.map((img, i) => (
@@ -147,7 +158,7 @@ const ArchiveGallery = () => {
       >
         <Link
           to="/archive"
-          className="inline-flex items-center justify-center gap-2 font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+          className="inline-flex items-center justify-center gap-2 font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300 rounded-none"
         >
           {t("archiveViewAll")}
         </Link>

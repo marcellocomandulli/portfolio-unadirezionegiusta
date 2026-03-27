@@ -17,6 +17,7 @@ const gallery6 = () => lazyImg(() => import("@/assets/gallery-6.jpg"));
 const gallery8 = () => lazyImg(() => import("@/assets/gallery-8.jpg"));
 
 import { useState, useEffect } from "react";
+import { useLang } from "@/i18n/LanguageContext";
 
 const LazyParallax = ({
   loader,
@@ -37,8 +38,11 @@ const LazyParallax = ({
   );
 };
 
-const Index = () => (
-  <main className="bg-background">
+const Index = () => {
+  const { t } = useLang();
+
+  return (
+    <main className="bg-background">
     <PageLoader />
     <Navbar />
     <div className="relative z-10 bg-background shadow-[0_20px_40px_-10px_hsl(var(--background))]">
@@ -47,7 +51,18 @@ const Index = () => (
         <FeaturedStories />
       </Suspense>
     </div>
-    <LazyParallax loader={gallery2} alt="Landscape transition" />
+    <section id="services-purpose" className="py-28 bg-muted">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl lg:text-4xl font-serif text-foreground font-semibold max-w-3xl mx-auto">
+          {t("servicesPurpose")}
+        </h2>
+        <div className="mt-10">
+          <a href="#contact" className="inline-block rounded-md bg-primary px-8 py-4 text-base lg:text-lg font-medium text-primary-foreground hover:opacity-90">
+            {t("btnRequestConsult")}
+          </a>
+        </div>
+      </div>
+    </section>
     <div className="relative z-10 bg-background shadow-[0_-20px_40px_-10px_hsl(var(--background)),0_20px_40px_-10px_hsl(var(--background))]">
       <Suspense fallback={null}>
         <ProcessSection />
@@ -67,5 +82,6 @@ const Index = () => (
     </div>
   </main>
 );
+}
 
 export default Index;

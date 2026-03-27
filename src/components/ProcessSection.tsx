@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery7 from "@/assets/gallery-7.jpg";
 import { useLang } from "@/i18n/LanguageContext";
@@ -39,13 +39,7 @@ const ProcessSection = () => {
     );
   };
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const img1Y = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const img2Y = useTransform(scrollYProgress, [0, 1], [100, -40]);
+  // Images are now static; styling handles overlap on larger screens.
 
   const services = [
     { title: t("processService1Title"), desc: t("processService1Desc") },
@@ -79,7 +73,7 @@ const ProcessSection = () => {
 
           {/* Intro */}
           <motion.p
-            className="font-body text-lg sm:text-xl text-foreground/90 leading-relaxed mb-6 whitespace-pre-line font-medium"
+            className="font-body text-xl sm:text-2xl text-foreground/90 leading-relaxed mb-6 whitespace-pre-line font-medium"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -90,7 +84,7 @@ const ProcessSection = () => {
 
           {/* Growth */}
           <motion.p
-            className="font-body text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8"
+            className="font-body text-xl sm:text-2xl text-muted-foreground leading-relaxed mb-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -101,7 +95,7 @@ const ProcessSection = () => {
 
           {/* Experience intro */}
           <motion.p
-            className="font-body text-lg sm:text-xl text-foreground/90 leading-relaxed mb-4 font-medium"
+            className="font-body text-xl sm:text-2xl text-foreground/90 leading-relaxed mb-4 font-medium"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -123,7 +117,7 @@ const ProcessSection = () => {
                 <span className="font-serif text-xl sm:text-2xl text-foreground">
                   {s.title}
                 </span>
-                <span className="font-body text-lg text-muted-foreground block">
+                <span className="font-body text-xl sm:text-2xl text-muted-foreground block">
                   {s.desc}
                 </span>
               </div>
@@ -132,7 +126,7 @@ const ProcessSection = () => {
 
           {/* Strength */}
           <motion.p
-            className="font-body text-lg sm:text-xl text-muted-foreground leading-relaxed mb-6"
+            className="font-body text-xl sm:text-2xl text-muted-foreground leading-relaxed mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -153,11 +147,8 @@ const ProcessSection = () => {
           </motion.p>
         </div>
 
-        <div className="relative lg:sticky lg:top-32 lg:self-start min-h-[400px] sm:min-h-[600px] lg:min-h-[700px]">
-          <motion.div
-            className="relative z-10 w-[70%] lg:w-[65%] overflow-hidden shadow-2xl"
-            style={{ y: img1Y }}
-          >
+        <div className="relative lg:self-start min-h-[400px] sm:min-h-[600px] lg:min-h-[700px]">
+          <div className="relative z-10 w-full sm:w-[70%] lg:w-[65%] overflow-hidden shadow-2xl translate-y-0 lg:-translate-y-6">
             <img
               src={gallery4}
               alt="Process"
@@ -165,11 +156,8 @@ const ProcessSection = () => {
               loading="lazy"
               decoding="async"
             />
-          </motion.div>
-          <motion.div
-            className="absolute top-[30%] right-0 w-[65%] lg:w-[60%] overflow-hidden shadow-2xl"
-            style={{ y: img2Y }}
-          >
+          </div>
+          <div className="relative mt-6 lg:mt-0 lg:absolute lg:top-[30%] lg:right-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden shadow-2xl lg:-translate-y-12">
             <img
               src={gallery7}
               alt="Process"
@@ -177,7 +165,7 @@ const ProcessSection = () => {
               loading="lazy"
               decoding="async"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
 

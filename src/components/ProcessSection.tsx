@@ -41,12 +41,6 @@ const ProcessSection = () => {
 
   // Images are now static; styling handles overlap on larger screens.
 
-  const services = [
-    { title: t("processService1Title"), desc: t("processService1Desc") },
-    { title: t("processService2Title"), desc: t("processService2Desc") },
-    { title: t("processService3Title"), desc: t("processService3Desc") },
-  ];
-
   return (
     <section
       id="about"
@@ -75,7 +69,7 @@ const ProcessSection = () => {
 
           {/* Intro */}
           <motion.p
-            className="font-body text-base sm:text-lg text-foreground/85 leading-[1.8] mb-8"
+            className="font-body text-xl sm:text-2xl text-foreground/90 leading-relaxed mb-6 whitespace-pre-line font-medium"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -86,7 +80,7 @@ const ProcessSection = () => {
 
           {/* Growth */}
           <motion.p
-            className="font-body text-base sm:text-lg text-muted-foreground leading-[1.8] mb-10"
+            className="font-body text-xl sm:text-2xl text-muted-foreground leading-relaxed mb-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -94,26 +88,6 @@ const ProcessSection = () => {
           >
             {t("processGrowth")}
           </motion.p>
-
-          {/* Services */}
-          <motion.div
-            className="space-y-5 mb-10 pl-5 border-l-2 border-primary/40"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            {services.map((s, i) => (
-              <div key={i}>
-                <span className="font-sans-display text-sm sm:text-base tracking-wide uppercase text-foreground">
-                  {s.title}
-                </span>
-                <span className="font-body text-sm sm:text-base text-muted-foreground block mt-1">
-                  {s.desc}
-                </span>
-              </div>
-            ))}
-          </motion.div>
 
           {/* Closing */}
           <motion.p

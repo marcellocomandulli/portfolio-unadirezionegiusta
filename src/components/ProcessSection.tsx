@@ -41,12 +41,6 @@ const ProcessSection = () => {
 
   // Images are now static; styling handles overlap on larger screens.
 
-  const services = [
-    { title: t("processService1Title"), desc: t("processService1Desc") },
-    { title: t("processService2Title"), desc: t("processService2Desc") },
-    { title: t("processService3Title"), desc: t("processService3Desc") },
-  ];
-
   return (
     <section
       id="about"

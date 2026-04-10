@@ -79,7 +79,7 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-6 sm:bottom-8 left-0 right-0 z-10 flex flex-col items-center gap-2"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >

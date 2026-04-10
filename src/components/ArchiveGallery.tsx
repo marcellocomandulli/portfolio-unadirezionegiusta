@@ -137,9 +137,9 @@ const ArchiveGallery = () => {
         <div className="ml-4">
           <Link
             to="/archive"
-            className="hidden md:inline-flex button-minimal text-base lg:text-lg font-medium text-primary items-center gap-2"
+            className="hidden md:inline-flex button-minimal text-sm lg:text-base font-medium text-primary items-center gap-2"
           >
-            {t("btnViewGallery")}
+            {t("btnViewGalleryFull")}
             <span aria-hidden>→</span>
           </Link>
         </div>

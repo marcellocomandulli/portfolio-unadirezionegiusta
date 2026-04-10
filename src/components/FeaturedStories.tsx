@@ -82,7 +82,7 @@ const FeaturedStories = () => {
               />
             </div>
             <div className="mt-4">
-              <h3 className="font-sans-display text-lg sm:text-xl text-foreground">{s.title}</h3>
+              <h3 className="font-serif text-xl sm:text-2xl text-foreground">{s.title}</h3>
               <p className="text-foreground/90 mt-2 text-base sm:text-lg">{s.desc}</p>
             </div>
           </motion.div>

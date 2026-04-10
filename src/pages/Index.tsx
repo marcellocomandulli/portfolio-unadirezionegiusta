@@ -51,13 +51,13 @@ const Index = () => {
         <FeaturedStories />
       </Suspense>
     </div>
-    <section id="services-purpose" className="py-28 bg-muted">
+    <section id="services-purpose" className="py-28 bg-background grain">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl lg:text-4xl font-serif text-foreground font-semibold max-w-3xl mx-auto">
           {t("servicesPurpose")}
         </h2>
         <div className="mt-10">
-          <a href="#contact" className="inline-block rounded-md bg-primary px-8 py-4 text-base lg:text-lg font-medium text-primary-foreground hover:opacity-90">
+          <a href="#contact" className="inline-block font-sans-display text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border-2 border-primary text-primary px-6 sm:px-10 py-3 sm:py-4 hover:bg-primary hover:text-primary-foreground transition-all duration-300">
             {t("btnRequestConsult")}
           </a>
         </div>

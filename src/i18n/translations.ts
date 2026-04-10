@@ -84,12 +84,12 @@ export const translations = {
   // Process → Chi Siamo
   processTitle1: { it: "Chi Siamo", en: "About Us" },
   processIntro: {
-    it: "Siamo fotografi e videomaker con base a Roma e raccontiamo storie attraverso immagini e video. Prima ancora che tecnici, ci consideriamo narratori visivi: osserviamo, ascoltiamo e trasformiamo momenti reali in immagini che restano nel tempo.",
-    en: "We are Rome-based photographers and videomakers who tell stories through images and video. More than just technicians, we see ourselves as visual storytellers: we observe, listen, and transform real moments into timeless images.",
+    it: "Siamo Marcello e Giulia, fotografi e videomaker con base a Roma e raccontiamo storie attraverso immagini e video. Prima ancora che tecnici, ci consideriamo narratori visivi: osserviamo, ascoltiamo e trasformiamo momenti reali in immagini che restano nel tempo.",
+    en: "We are Marcello and Giulia, Rome-based photographers and videomakers, we tell stories through images and video. More than just technicians, we see ourselves as visual storytellers: we observe, listen, and transform real moments into timeless images.",
   },
   processGrowth: {
-    it: "Il viaggio è stato la nostra scuola più importante. Lavorare tra città, paesaggi e culture diverse ci ha insegnato ad adattarci rapidamente e a valorizzare ogni scenario, leggendo la luce in ogni situazione. \nAbbiamo realizzato collaborazioni e progetti sia in Italia che all’estero, portando questa esperienza anche nei lavori realizzati a Roma. Parallelamente abbiamo costruito una community online dedicata ai viaggi con oltre 8000 persone. Questo ci ha permesso di sviluppare una forte sensibilità per la comunicazione sui social e per la creazione di contenuti visivi efficaci.",
-    en: "Travel has been our most influential teacher. Working across diverse cities, landscapes, and cultures has taught us to adapt quickly and enhance every setting, reading the light in any situation. \nHaving completed projects both in Italy and abroad, we bring this global experience to everything we do here in Rome. \nIn parallel, we have built an online travel community of over 8,000 people. This has given us a deep understanding of social media communication and the creation of high-impact visual content.",
+    it: "Il viaggio è stato la nostra scuola più importante. Lavorare tra città, paesaggi e culture diverse ci ha insegnato ad adattarci rapidamente e a valorizzare ogni scenario, leggendo la luce in ogni situazione. \nAbbiamo realizzato collaborazioni e progetti sia in Italia che all’estero e parallelamente abbiamo costruito una community online dedicata ai viaggi con oltre 8000 persone. Questo ci ha permesso di sviluppare una forte sensibilità per la comunicazione sui social e per la creazione di contenuti visivi efficaci.",
+    en: "Travel has been our most influential teacher. Working across diverse cities, landscapes, and cultures has taught us to adapt quickly and enhance every setting, reading the light in any situation. \nWe completed projects both in Italy and abroad and in parallel, we have built an online travel community of over 8,000 people. This has given us a deep understanding of social media communication and the creation of high-impact visual content.",
   },
   processExperience: {
     it: "",
@@ -182,22 +182,22 @@ export const translations = {
   },
   // Specific services requested
   serviceWeddingTitle: {
-    it: "Matrimoni e pre-matrimoniali",
-    en: "Weddings & Pre-weddings",
+    it: "Matrimoni e Servizi Pre - Post Matrimoniali",
+    en: "Weddings and Pre - Post Wedding Services",
   },
   serviceWeddingDesc: {
-    it: "Raccontiamo il vostro giorno con uno stile spontaneo e autentico, dalla preparazione fino al ricevimento.",
-    en: "We tell your day with a spontaneous, authentic style — from preparation to reception.",
+    it: "Raccontiamo il vostro matrimonio, dai giorni che lo precedono a quelli che lo seguono",
+    en: "We tell the story of your wedding, from the days leading up to it to those that follow",
   },
   serviceShootingTitle: { it: "Shooting", en: "Shooting" },
   serviceShootingDesc: {
-    it: "Shooting singoli, coppie, modelle, premaman e new-born per risaltare al 100% il soggetto",
-    en: "Individual, couple, model, maternity and newborn shoots to make the subject shine 100%.",
+    it: "Shooting premaman, coppie, moda, e-commerce",
+    en: "Maternity, couple, fashion, e-commerce shoots",
   },
   serviceEventsTitle: { it: "Eventi", en: "Events" },
   serviceEventsDesc: {
-    it: "Compleanni, battesimi, comunioni e anniversari raccontati in modo discreto e naturale.",
-    en: "Birthdays, christenings, communions and anniversaries captured discreetly and naturally.",
+    it: "Compleanni, battesimi, comunioni, anniversari e inaugurazioni",
+    en: "Birthdays, baptisms, communions, anniversaries and grand openings",
   },
   btnViewGallery: { it: "Vai alla galleria", en: "View gallery" },
   // Additional CTAs and section texts
@@ -205,12 +205,12 @@ export const translations = {
   navCTA: { it: "Contattaci", en: "Contact us" },
 
   servicesPurpose: {
-    it: "Il nostro scopo è di farti rivivere quelle emozioni come la prima volta",
-    en: "Our purpose is to make you relive those emotions as if for the first time",
+    it: "Il nostro scopo è farti rivivere le emozioni come fosse la prima volta",
+    en: "Our goal is to make you relive the emotions as if it were the very first time",
   },
   btnRequestConsult: {
-    it: "Richiedi un consulto gratuito",
-    en: "Request a free consultation",
+    it: "Chiedi il tuo preventivo",
+    en: "Ask for your quote",
   },
 
   // Contact form

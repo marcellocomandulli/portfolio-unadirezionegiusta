@@ -126,7 +126,7 @@ const ContactFooter = () => {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder={t("formNamePlaceholder")}
-                className="bg-background/50 border-border focus:border-primary rounded-none text-foreground placeholder:text-foreground/50 text-base"
+                className="bg-background/50 border-border focus:border-primary rounded-none text-white placeholder:text-white/60 text-base"
               />
             </div>
             <div>
@@ -141,7 +141,7 @@ const ContactFooter = () => {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder={t("formEmailPlaceholder")}
-                className="bg-background/50 border-border focus:border-primary rounded-none text-foreground placeholder:text-foreground/50 text-base"
+                className="bg-background/50 border-border focus:border-primary rounded-none text-white placeholder:text-white/60 text-base"
               />
             </div>
             <div>
@@ -155,7 +155,7 @@ const ContactFooter = () => {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 placeholder={t("formMessagePlaceholder")}
-                className="bg-background/50 border-border focus:border-primary min-h-[120px] rounded-none text-foreground placeholder:text-foreground/50 text-base"
+                className="bg-background/50 border-border focus:border-primary min-h-[120px] rounded-none text-white placeholder:text-white/60 text-base"
               />
             </div>
             <button

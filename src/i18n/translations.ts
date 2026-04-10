@@ -199,7 +199,7 @@ export const translations = {
     it: "Compleanni, battesimi, comunioni, anniversari e inaugurazioni",
     en: "Birthdays, baptisms, communions, anniversaries and grand openings",
   },
-  btnViewGallery: { it: "Vai alla galleria", en: "View gallery" },
+  btnViewGallery: { it: "Vai alla galleria completa", en: "View full gallery" },
   // Additional CTAs and section texts
   heroCTA: { it: "Parlaci del tuo progetto", en: "Tell us about your project" },
   navCTA: { it: "Contattaci", en: "Contact us" },

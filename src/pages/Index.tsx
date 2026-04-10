@@ -51,7 +51,7 @@ const Index = () => {
         <FeaturedStories />
       </Suspense>
     </div>
-    <section id="services-purpose" className="py-28 bg-background grain">
+    <section id="services-purpose" className="py-28 grain" style={{ backgroundColor: 'hsl(30 8% 8%)' }}>
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl lg:text-4xl font-serif text-foreground font-semibold max-w-3xl mx-auto">
           {t("servicesPurpose")}

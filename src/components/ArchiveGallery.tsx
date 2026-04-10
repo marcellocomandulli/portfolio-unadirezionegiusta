@@ -139,7 +139,7 @@ const ArchiveGallery = () => {
             to="/archive"
             className="hidden md:inline-flex button-minimal text-sm lg:text-base font-medium text-primary items-center gap-2"
           >
-            {t("btnViewGalleryFull")}
+            {t("btnViewGallery")}
             <span aria-hidden>→</span>
           </Link>
         </div>

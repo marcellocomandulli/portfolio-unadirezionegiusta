@@ -56,13 +56,15 @@ const ProcessSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-start">
         <div>
           <motion.p
-            className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
+            className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-          ></motion.p>
+          >
+            {t("processTitle1") === "Chi Siamo" ? "About Us" : ""}
+          </motion.p>
           <motion.h2
-            className="font-serif text-3xl sm:text-4xl lg:text-6xl text-foreground mb-8 sm:mb-10"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground mb-10 sm:mb-14 leading-[1.1]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -73,7 +75,7 @@ const ProcessSection = () => {
 
           {/* Intro */}
           <motion.p
-            className="font-body text-xl sm:text-2xl text-foreground/90 leading-relaxed mb-6 whitespace-pre-line font-medium"
+            className="font-body text-base sm:text-lg text-foreground/85 leading-[1.8] mb-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -84,7 +86,7 @@ const ProcessSection = () => {
 
           {/* Growth */}
           <motion.p
-            className="font-body text-xl sm:text-2xl text-muted-foreground leading-relaxed mb-8"
+            className="font-body text-base sm:text-lg text-muted-foreground leading-[1.8] mb-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -93,20 +95,9 @@ const ProcessSection = () => {
             {t("processGrowth")}
           </motion.p>
 
-          {/* Experience intro */}
-          <motion.p
-            className="font-body text-xl sm:text-2xl text-foreground/90 leading-relaxed mb-4 font-medium"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
-            {t("processExperience")}
-          </motion.p>
-
           {/* Services */}
           <motion.div
-            className="space-y-4 mb-8 pl-4 border-l-2 border-primary/30"
+            className="space-y-5 mb-10 pl-5 border-l-2 border-primary/40"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -114,26 +105,15 @@ const ProcessSection = () => {
           >
             {services.map((s, i) => (
               <div key={i}>
-                <span className="font-serif text-xl sm:text-2xl text-foreground">
+                <span className="font-sans-display text-sm sm:text-base tracking-wide uppercase text-foreground">
                   {s.title}
                 </span>
-                <span className="font-body text-xl sm:text-2xl text-muted-foreground block">
+                <span className="font-body text-sm sm:text-base text-muted-foreground block mt-1">
                   {s.desc}
                 </span>
               </div>
             ))}
           </motion.div>
-
-          {/* Strength */}
-          <motion.p
-            className="font-body text-xl sm:text-2xl text-muted-foreground leading-relaxed mb-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-          >
-            {t("processStrength")}
-          </motion.p>
 
           {/* Closing */}
           <motion.p

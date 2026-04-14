@@ -6,7 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
-import sideImage from "@/assets/gallery-2.jpg";
+import { getStorageUrl } from "@/lib/storage";
+const sideImage = getStorageUrl("about-1.jpg");
 
 const ContactFooter = () => {
   const { t } = useLang();

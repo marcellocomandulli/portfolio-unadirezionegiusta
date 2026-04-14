@@ -6,167 +6,42 @@ import Navbar from "@/components/Navbar";
 import ContactFooter from "@/components/ContactFooter";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import { useLang } from "@/i18n/LanguageContext";
-import type {
-  TranslationKey,
-  ArchiveCategory,
-  Continent,
-} from "@/i18n/translations";
+import { usePortfolioPhotos, type PhotoCategory } from "@/hooks/usePortfolioPhotos";
+import type { ArchiveCategory } from "@/i18n/translations";
 
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
-import gallery7 from "@/assets/gallery-7.jpg";
-import gallery8 from "@/assets/gallery-8.jpg";
-import gallery9 from "@/assets/gallery-9.jpg";
-import gallery10 from "@/assets/gallery-10.jpg";
-import gallery11 from "@/assets/gallery-11.jpg";
-import gallery12 from "@/assets/gallery-12.jpg";
+const categoryToPhoto: Record<string, PhotoCategory | undefined> = {
+  weddings: "matrimonio",
+  shooting: "shooting",
+  events: "evento",
+};
 
-interface ArchiveImage {
-  src: string;
-  titleKey: TranslationKey;
-  spanDesktop: string;
-  spanMobile: string;
-  category: ArchiveCategory;
-  continent?: Continent;
-}
-
-const allImages: ArchiveImage[] = [
-  {
-    src: gallery1,
-    titleKey: "archImg1",
-    spanDesktop: "col-span-2 row-span-2",
-    spanMobile: "col-span-2 row-span-2",
-    category: "travel",
-    continent: "europe",
-  },
-  {
-    src: gallery2,
-    titleKey: "archImg2",
-    spanDesktop: "col-span-1 row-span-2",
-    spanMobile: "col-span-1 row-span-1",
-    category: "shooting",
-  },
-  {
-    src: gallery3,
-    titleKey: "archImg3",
-    spanDesktop: "col-span-1 row-span-1",
-    spanMobile: "col-span-1 row-span-1",
-    category: "travel",
-    continent: "asia",
-  },
-  {
-    src: gallery6,
-    titleKey: "archImg4",
-    spanDesktop: "col-span-1 row-span-1",
-    spanMobile: "col-span-1 row-span-1",
-    category: "events",
-  },
-  {
-    src: gallery4,
-    titleKey: "archImg5",
-    spanDesktop: "col-span-1 row-span-2",
-    spanMobile: "col-span-1 row-span-1",
-    category: "weddings",
-  },
-  {
-    src: gallery5,
-    titleKey: "archImg6",
-    spanDesktop: "col-span-2 row-span-1",
-    spanMobile: "col-span-2 row-span-1",
-    category: "travel",
-    continent: "europe",
-  },
-  {
-    src: gallery7,
-    titleKey: "archImg7",
-    spanDesktop: "col-span-1 row-span-1",
-    spanMobile: "col-span-1 row-span-1",
-    category: "shooting",
-  },
-  {
-    src: gallery8,
-    titleKey: "archImg8",
-    spanDesktop: "col-span-2 row-span-1",
-    spanMobile: "col-span-1 row-span-1",
-    category: "travel",
-    continent: "africa",
-  },
-  {
-    src: gallery9,
-    titleKey: "archImg9",
-    spanDesktop: "col-span-1 row-span-2",
-    spanMobile: "col-span-1 row-span-1",
-    category: "travel",
-    continent: "europe",
-  },
-  {
-    src: gallery10,
-    titleKey: "archImg10",
-    spanDesktop: "col-span-2 row-span-1",
-    spanMobile: "col-span-2 row-span-1",
-    category: "events",
-  },
-  {
-    src: gallery11,
-    titleKey: "archImg11",
-    spanDesktop: "col-span-1 row-span-1",
-    spanMobile: "col-span-1 row-span-1",
-    category: "shooting",
-  },
-  {
-    src: gallery12,
-    titleKey: "archImg12",
-    spanDesktop: "col-span-2 row-span-2",
-    spanMobile: "col-span-1 row-span-1",
-    category: "travel",
-    continent: "europe",
-  },
-  {
-    src: gallery1,
-    titleKey: "archImg1",
-    spanDesktop: "col-span-1 row-span-1",
-    spanMobile: "col-span-1 row-span-1",
-    category: "weddings",
-  },
-  {
-    src: gallery3,
-    titleKey: "archImg3",
-    spanDesktop: "col-span-2 row-span-1",
-    spanMobile: "col-span-2 row-span-1",
-    category: "events",
-  },
-  {
-    src: gallery5,
-    titleKey: "archImg6",
-    spanDesktop: "col-span-1 row-span-2",
-    spanMobile: "col-span-1 row-span-1",
-    category: "shooting",
-  },
-  {
-    src: gallery7,
-    titleKey: "archImg7",
-    spanDesktop: "col-span-1 row-span-1",
-    spanMobile: "col-span-1 row-span-1",
-    category: "travel",
-    continent: "south-america",
-  },
+const spanPatterns = [
+  { desktop: "col-span-2 row-span-2", mobile: "col-span-2 row-span-2" },
+  { desktop: "col-span-1 row-span-2", mobile: "col-span-1 row-span-1" },
+  { desktop: "col-span-1 row-span-1", mobile: "col-span-1 row-span-1" },
+  { desktop: "col-span-1 row-span-1", mobile: "col-span-1 row-span-1" },
+  { desktop: "col-span-1 row-span-2", mobile: "col-span-1 row-span-1" },
+  { desktop: "col-span-2 row-span-1", mobile: "col-span-2 row-span-1" },
+  { desktop: "col-span-1 row-span-1", mobile: "col-span-1 row-span-1" },
+  { desktop: "col-span-2 row-span-1", mobile: "col-span-1 row-span-1" },
 ];
 
 const ParallaxImage = ({
-  image,
+  src,
+  alt,
+  spanMobile,
+  spanDesktop,
   index,
   onClick,
 }: {
-  image: ArchiveImage;
+  src: string;
+  alt: string;
+  spanMobile: string;
+  spanDesktop: string;
   index: number;
   onClick: () => void;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { t } = useLang();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -177,7 +52,7 @@ const ParallaxImage = ({
   return (
     <motion.div
       ref={ref}
-      className={`${image.spanMobile} md:${image.spanDesktop} relative overflow-hidden group cursor-pointer`}
+      className={`${spanMobile} md:${spanDesktop} relative overflow-hidden group cursor-pointer`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -186,8 +61,8 @@ const ParallaxImage = ({
     >
       <motion.div className="w-full h-full" style={{ y, scale }}>
         <img
-          src={image.src}
-          alt={t(image.titleKey)}
+          src={src}
+          alt={alt}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
         />
@@ -198,48 +73,27 @@ const ParallaxImage = ({
 
 const Archive = ({
   routeCategory,
-  routeContinent,
 }: {
   routeCategory?: ArchiveCategory;
-  routeContinent?: Continent;
+  routeContinent?: string;
 }) => {
   const { t } = useLang();
   const [searchParams] = useSearchParams();
-  const categoryParam = (routeCategory ??
-    (searchParams.get("category") || "all")) as ArchiveCategory;
-  const continentParam = (routeContinent ??
-    (searchParams.get("continent") as Continent | null)) as Continent | null;
+  const categoryParam = (routeCategory ?? (searchParams.get("category") || "all")) as ArchiveCategory;
 
-  const filtered = allImages.filter((img) => {
-    if (categoryParam !== "all" && img.category !== categoryParam) return false;
-    if (
-      categoryParam === "travel" &&
-      continentParam &&
-      img.continent !== continentParam
-    )
-      return false;
-    return true;
-  });
+  const photoCategory = categoryParam === "all" ? undefined : categoryToPhoto[categoryParam];
+  const { photos, loading } = usePortfolioPhotos(photoCategory);
 
-  const lightboxImages = filtered.map((img) => ({
-    src: img.src,
-    alt: t(img.titleKey),
-  }));
+  const lightboxImages = photos.map((p) => ({ src: p.url, alt: p.name }));
 
   const categoryLabel =
     categoryParam === "all"
       ? t("catAll")
       : categoryParam === "shooting"
         ? t("catShooting")
-        : categoryParam === "travel"
-          ? continentParam
-            ? t(
-                `cont${continentParam.charAt(0).toUpperCase() + continentParam.slice(1).replace(/-([a-z])/g, (_, c) => c.toUpperCase())}` as TranslationKey,
-              )
-            : t("catTravel")
-          : categoryParam === "weddings"
-            ? t("catWeddings")
-            : t("catEvents");
+        : categoryParam === "weddings"
+          ? t("catWeddings")
+          : t("catEvents");
 
   return (
     <main className="bg-background min-h-screen">
@@ -274,21 +128,33 @@ const Archive = ({
       </div>
 
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-16 grain">
-        <GalleryLightbox images={lightboxImages}>
-          {(openAtIndex) => (
-            <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
-              {filtered.map((img, i) => (
-                <ParallaxImage
-                  key={i}
-                  image={img}
-                  index={i}
-                  onClick={() => openAtIndex(i)}
-                />
-              ))}
-            </div>
-          )}
-        </GalleryLightbox>
-        {filtered.length === 0 && (
+        {loading ? (
+          <div className="h-[300px] flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : (
+          <GalleryLightbox images={lightboxImages}>
+            {(openAtIndex) => (
+              <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[180px] sm:auto-rows-[250px] lg:auto-rows-[300px] gap-2 sm:gap-3 lg:gap-4">
+                {photos.map((photo, i) => {
+                  const pattern = spanPatterns[i % spanPatterns.length];
+                  return (
+                    <ParallaxImage
+                      key={photo.name}
+                      src={photo.url}
+                      alt={photo.name}
+                      spanMobile={pattern.mobile}
+                      spanDesktop={pattern.desktop}
+                      index={i}
+                      onClick={() => openAtIndex(i)}
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </GalleryLightbox>
+        )}
+        {!loading && photos.length === 0 && (
           <p className="text-center text-muted-foreground font-body text-lg py-20">
             {categoryParam === "all"
               ? "Nessuna foto disponibile."

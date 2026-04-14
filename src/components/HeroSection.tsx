@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroVideo from "@/assets/hero-video.mp4";
+import videoDrone from "@/assets/video-viaggi-drone.mp4";
 import { useLang } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
@@ -18,19 +18,20 @@ const HeroSection = () => {
     <section ref={ref} className="relative h-screen overflow-hidden grain">
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <video
-          src={heroVideo}
+          src={videoDrone}
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          poster="/src/assets/viaggi-drone-poster.jpg"
+          preload="metadata"
           webkit-playsinline="true"
           x-webkit-airplay="deny"
           disablePictureInPicture
           ref={(el) => {
             if (el) el.play().catch(() => {});
           }}
-          className="w-full h-[130%] object-cover"
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent" />

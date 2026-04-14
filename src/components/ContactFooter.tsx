@@ -76,7 +76,7 @@ const ContactFooter = () => {
           <span className="text-gold-gradient">{t("contactTitle2")}</span>
         </motion.h2>
         <motion.p
-          className="font-body text-base sm:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-lg mx-auto px-4"
+          className="font-body text-base sm:text-xl text-foreground mb-8 sm:mb-12 max-w-lg mx-auto px-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -116,7 +116,7 @@ const ContactFooter = () => {
             transition={{ delay: 0.4 }}
           >
             <div>
-              <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
+              <label className="font-sans-display text-sm tracking-[0.15em] uppercase text-foreground mb-1.5 block">
                 {t("formName")}
               </label>
               <Input
@@ -126,11 +126,11 @@ const ContactFooter = () => {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder={t("formNamePlaceholder")}
-                className="bg-background/50 border-border focus:border-primary rounded-none"
+                className="bg-background/50 border-border focus:border-primary rounded-none text-white placeholder:text-white/60 text-base"
               />
             </div>
             <div>
-              <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
+              <label className="font-sans-display text-sm tracking-[0.15em] uppercase text-foreground mb-1.5 block">
                 {t("formEmail")}
               </label>
               <Input
@@ -141,11 +141,11 @@ const ContactFooter = () => {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder={t("formEmailPlaceholder")}
-                className="bg-background/50 border-border focus:border-primary rounded-none"
+                className="bg-background/50 border-border focus:border-primary rounded-none text-white placeholder:text-white/60 text-base"
               />
             </div>
             <div>
-              <label className="font-sans-display text-xs tracking-[0.15em] uppercase text-muted-foreground mb-1.5 block">
+              <label className="font-sans-display text-sm tracking-[0.15em] uppercase text-foreground mb-1.5 block">
                 {t("formMessage")}
               </label>
               <Textarea
@@ -155,7 +155,7 @@ const ContactFooter = () => {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 placeholder={t("formMessagePlaceholder")}
-                className="bg-background/50 border-border focus:border-primary min-h-[120px] rounded-none"
+                className="bg-background/50 border-border focus:border-primary min-h-[120px] rounded-none text-white placeholder:text-white/60 text-base"
               />
             </div>
             <button

@@ -41,12 +41,6 @@ const ProcessSection = () => {
 
   // Images are now static; styling handles overlap on larger screens.
 
-  const services = [
-    { title: t("processService1Title"), desc: t("processService1Desc") },
-    { title: t("processService2Title"), desc: t("processService2Desc") },
-    { title: t("processService3Title"), desc: t("processService3Desc") },
-  ];
-
   return (
     <section
       id="about"
@@ -56,13 +50,15 @@ const ProcessSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-start">
         <div>
           <motion.p
-            className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-4"
+            className="font-sans-display text-xs tracking-[0.4em] uppercase text-primary mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-          ></motion.p>
+          >
+            {t("processTitle1") === "Chi Siamo" ? "About Us" : ""}
+          </motion.p>
           <motion.h2
-            className="font-serif text-3xl sm:text-4xl lg:text-6xl text-foreground mb-8 sm:mb-10"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground mb-10 sm:mb-14 leading-[1.1]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -91,48 +87,6 @@ const ProcessSection = () => {
             transition={{ delay: 0.3 }}
           >
             {t("processGrowth")}
-          </motion.p>
-
-          {/* Experience intro */}
-          <motion.p
-            className="font-body text-xl sm:text-2xl text-foreground/90 leading-relaxed mb-4 font-medium"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
-            {t("processExperience")}
-          </motion.p>
-
-          {/* Services */}
-          <motion.div
-            className="space-y-4 mb-8 pl-4 border-l-2 border-primary/30"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            {services.map((s, i) => (
-              <div key={i}>
-                <span className="font-serif text-xl sm:text-2xl text-foreground">
-                  {s.title}
-                </span>
-                <span className="font-body text-xl sm:text-2xl text-muted-foreground block">
-                  {s.desc}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Strength */}
-          <motion.p
-            className="font-body text-xl sm:text-2xl text-muted-foreground leading-relaxed mb-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-          >
-            {t("processStrength")}
           </motion.p>
 
           {/* Closing */}

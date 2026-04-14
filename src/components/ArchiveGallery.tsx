@@ -137,9 +137,12 @@ const ArchiveGallery = () => {
         <div className="ml-4">
           <Link
             to="/archive"
-            className="hidden md:inline-flex button-minimal text-base lg:text-lg font-medium text-primary items-center gap-2"
+            className="hidden md:inline-flex text-sm lg:text-base font-medium text-primary items-center gap-2 group relative"
           >
-            {t("btnViewGallery")}
+            <span className="relative">
+              {t("btnViewGallery")}
+              <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-primary transition-all duration-500 group-hover:w-full" />
+            </span>
             <span aria-hidden>→</span>
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import videoDrone from "@/assets/video-viaggi-drone.mp4";
+import { getStorageUrl } from "@/lib/storage";
 import { useLang } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
@@ -14,16 +14,19 @@ const HeroSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  const videoUrl = getStorageUrl("video-viaggi-drone.mp4");
+  const posterUrl = getStorageUrl("viaggi-drone-poster.jpg");
+
   return (
     <section ref={ref} className="relative h-screen overflow-hidden grain">
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <video
-          src={videoDrone}
+          src={videoUrl}
           autoPlay
           muted
           loop
           playsInline
-          poster="/src/assets/viaggi-drone-poster.jpg"
+          poster={posterUrl}
           preload="metadata"
           webkit-playsinline="true"
           x-webkit-airplay="deny"

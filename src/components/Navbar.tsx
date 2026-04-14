@@ -37,7 +37,7 @@ const continents: { labelKey: string; continent: Continent }[] = [
 const archiveCategories: ArchiveSubItem[] = [
   { labelKey: "catAll", category: "all" },
   { labelKey: "catShooting", category: "shooting" },
-  { labelKey: "catTravel", category: "travel" },
+  
   { labelKey: "catWeddings", category: "weddings" },
   { labelKey: "catEvents", category: "events" },
 ];

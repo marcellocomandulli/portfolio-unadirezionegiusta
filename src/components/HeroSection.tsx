@@ -30,10 +30,10 @@ const HeroSection = () => {
           ref={(el) => {
             if (el) el.play().catch(() => {});
           }}
-          className="w-full h-[130%] object-cover"
+          className="w-full h-[130%] object-cover mt-16"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/30 to-transparent" />
       </motion.div>
 
       <motion.div

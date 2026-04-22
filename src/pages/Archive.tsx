@@ -13,6 +13,7 @@ const categoryToPhoto: Record<string, PhotoCategory | undefined> = {
   weddings: "matrimonio",
   shooting: "shooting",
   events: "evento",
+  travel: "viaggio",
 };
 
 const spanPatterns = [
@@ -93,7 +94,9 @@ const Archive = ({
         ? t("catShooting")
         : categoryParam === "weddings"
           ? t("catWeddings")
-          : t("catEvents");
+          : categoryParam === "travel"
+            ? t("catTravel")
+            : t("catEvents");
 
   return (
     <main className="bg-background min-h-screen">

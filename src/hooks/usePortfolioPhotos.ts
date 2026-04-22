@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { getStorageUrl } from "@/lib/storage";
 
-export type PhotoCategory = "matrimonio" | "shooting" | "evento";
+export type PhotoCategory = "matrimonio" | "shooting" | "evento" | "viaggio";
 
 export interface PortfolioPhoto {
   name: string;
@@ -15,6 +15,7 @@ const getCategoryFromName = (name: string): PhotoCategory | null => {
   if (lower.startsWith("matrimonio")) return "matrimonio";
   if (lower.startsWith("shooting")) return "shooting";
   if (lower.startsWith("evento")) return "evento";
+  if (lower.startsWith("viaggio")) return "viaggio";
   return null;
 };
 

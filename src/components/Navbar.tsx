@@ -37,9 +37,9 @@ const continents: { labelKey: string; continent: Continent }[] = [
 const archiveCategories: ArchiveSubItem[] = [
   { labelKey: "catAll", category: "all" },
   { labelKey: "catShooting", category: "shooting" },
-  
   { labelKey: "catWeddings", category: "weddings" },
   { labelKey: "catEvents", category: "events" },
+  { labelKey: "catTravel", category: "travel" },
 ];
 
 const Navbar = () => {
@@ -171,60 +171,13 @@ const Navbar = () => {
                     {archiveCategories
                       .filter((c) => c.category !== "all")
                       .map((cat) => (
-                        <div key={cat.category} className="relative">
-                          {cat.category === "travel" ? (
-                            <div
-                              onMouseEnter={() => setTravelOpen(true)}
-                              onMouseLeave={() => setTravelOpen(false)}
-                            >
-                              <button
-                                onClick={() => goToArchive("travel")}
-                                className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors flex items-center justify-between gap-2"
-                              >
-                                {t(cat.labelKey as any)}
-                                <ChevronRight size={10} />
-                              </button>
-                              <AnimatePresence>
-                                {travelOpen && (
-                                  <motion.div
-                                    className="absolute left-full top-0 ml-1 bg-background/95 backdrop-blur-md border border-border/50 py-3 px-1 min-w-[160px] shadow-xl"
-                                    initial={{ opacity: 0, x: -8 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -8 }}
-                                    transition={{ duration: 0.15 }}
-                                  >
-                                    {continents
-                                      .filter(
-                                        (ct) =>
-                                          ct.continent === "europe" ||
-                                          ct.continent === "asia",
-                                      )
-                                      .map((cont) => (
-                                        <button
-                                          key={cont.continent}
-                                          onClick={() =>
-                                            goToArchive(
-                                              "travel",
-                                              cont.continent,
-                                            )
-                                          }
-                                          className="w-full text-left font-sans-display text-xs tracking-[0.1em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors"
-                                        >
-                                          {t(cont.labelKey as any)}
-                                        </button>
-                                      ))}
-                                  </motion.div>
-                                )}
-                              </AnimatePresence>
-                            </div>
-                          ) : (
-                            <button
-                              onClick={() => goToArchive(cat.category)}
-                              className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors"
-                            >
-                              {t(cat.labelKey as any)}
-                            </button>
-                          )}
+                        <div key={cat.category}>
+                          <button
+                            onClick={() => goToArchive(cat.category)}
+                            className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors"
+                          >
+                            {t(cat.labelKey as any)}
+                          </button>
                         </div>
                       ))}
                   </motion.div>
@@ -345,60 +298,12 @@ const Navbar = () => {
                             key={cat.category}
                             className="flex flex-col items-center"
                           >
-                            {cat.category === "travel" ? (
-                              <>
-                                <button
-                                  onClick={() =>
-                                    setMobileTravelOpen(!mobileTravelOpen)
-                                  }
-                                  className="font-sans-display text-lg tracking-[0.15em] uppercase text-foreground hover:text-primary transition-colors flex items-center gap-1"
-                                >
-                                  {t(cat.labelKey as any)}
-                                  <ChevronDown
-                                    size={14}
-                                    className={`transition-transform duration-200 ${mobileTravelOpen ? "rotate-180" : ""}`}
-                                  />
-                                </button>
-                                <AnimatePresence>
-                                  {mobileTravelOpen && (
-                                    <motion.div
-                                      className="flex flex-col items-center gap-2 mt-2"
-                                      initial={{ opacity: 0, height: 0 }}
-                                      animate={{ opacity: 1, height: "auto" }}
-                                      exit={{ opacity: 0, height: 0 }}
-                                    >
-                                      {continents
-                                        .filter(
-                                          (ct) =>
-                                            ct.continent === "europe" ||
-                                            ct.continent === "asia",
-                                        )
-                                        .map((cont) => (
-                                          <button
-                                            key={cont.continent}
-                                            onClick={() =>
-                                              goToArchive(
-                                                "travel",
-                                                cont.continent,
-                                              )
-                                            }
-                                            className="font-sans-display text-sm tracking-[0.1em] uppercase text-primary/60 hover:text-primary transition-colors"
-                                          >
-                                            {t(cont.labelKey as any)}
-                                          </button>
-                                        ))}
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
-                              </>
-                            ) : (
-                              <button
-                                onClick={() => goToArchive(cat.category)}
-                                className="font-sans-display text-lg tracking-[0.15em] uppercase text-foreground hover:text-primary transition-colors"
-                              >
-                                {t(cat.labelKey as any)}
-                              </button>
-                            )}
+                            <button
+                              onClick={() => goToArchive(cat.category)}
+                              className="font-sans-display text-lg tracking-[0.15em] uppercase text-foreground hover:text-primary transition-colors"
+                            >
+                              {t(cat.labelKey as any)}
+                            </button>
                           </div>
                         ))}
                     </motion.div>

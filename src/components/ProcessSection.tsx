@@ -7,7 +7,7 @@ const ProcessSection = () => {
   const { t } = useLang();
   const ref = useRef<HTMLDivElement>(null);
 
-  const about1 = getStorageUrl("about-1.jpg");
+  const about1 = getStorageUrl("chi-siamo-giulia.jpg");
   const about2 = getStorageUrl("about-2.jpg");
 
   const Counter = ({ target }: { target: number }) => {

@@ -26,6 +26,11 @@ const FeaturedStories = () => {
       desc: t("serviceEventsDesc"),
       category: "evento" as PhotoCategory,
     },
+    {
+      title: t("serviceTravelTitle"),
+      desc: t("serviceTravelDesc"),
+      category: "viaggio" as PhotoCategory,
+    },
   ];
 
   return (
@@ -41,7 +46,7 @@ const FeaturedStories = () => {
           {t("featuredTitle")}
         </motion.h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-16">
         {services.map((s, i) => {
           const photo = getFirstPhoto(s.category);
           return (

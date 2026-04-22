@@ -171,60 +171,13 @@ const Navbar = () => {
                     {archiveCategories
                       .filter((c) => c.category !== "all")
                       .map((cat) => (
-                        <div key={cat.category} className="relative">
-                          {cat.category === "travel" ? (
-                            <div
-                              onMouseEnter={() => setTravelOpen(true)}
-                              onMouseLeave={() => setTravelOpen(false)}
-                            >
-                              <button
-                                onClick={() => goToArchive("travel")}
-                                className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors flex items-center justify-between gap-2"
-                              >
-                                {t(cat.labelKey as any)}
-                                <ChevronRight size={10} />
-                              </button>
-                              <AnimatePresence>
-                                {travelOpen && (
-                                  <motion.div
-                                    className="absolute left-full top-0 ml-1 bg-background/95 backdrop-blur-md border border-border/50 py-3 px-1 min-w-[160px] shadow-xl"
-                                    initial={{ opacity: 0, x: -8 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -8 }}
-                                    transition={{ duration: 0.15 }}
-                                  >
-                                    {continents
-                                      .filter(
-                                        (ct) =>
-                                          ct.continent === "europe" ||
-                                          ct.continent === "asia",
-                                      )
-                                      .map((cont) => (
-                                        <button
-                                          key={cont.continent}
-                                          onClick={() =>
-                                            goToArchive(
-                                              "travel",
-                                              cont.continent,
-                                            )
-                                          }
-                                          className="w-full text-left font-sans-display text-xs tracking-[0.1em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors"
-                                        >
-                                          {t(cont.labelKey as any)}
-                                        </button>
-                                      ))}
-                                  </motion.div>
-                                )}
-                              </AnimatePresence>
-                            </div>
-                          ) : (
-                            <button
-                              onClick={() => goToArchive(cat.category)}
-                              className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors"
-                            >
-                              {t(cat.labelKey as any)}
-                            </button>
-                          )}
+                        <div key={cat.category}>
+                          <button
+                            onClick={() => goToArchive(cat.category)}
+                            className="w-full text-left font-sans-display text-xs tracking-[0.15em] uppercase text-foreground hover:text-primary px-4 py-2 transition-colors"
+                          >
+                            {t(cat.labelKey as any)}
+                          </button>
                         </div>
                       ))}
                   </motion.div>
